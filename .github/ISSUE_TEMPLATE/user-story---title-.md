@@ -1,5 +1,5 @@
 ---
-name: "'USER STORY: <TITLE>'"
+name: 'USER STORY: <TITLE>'
 about: devil-on-pans user story templates
 title: ''
 labels: ''
