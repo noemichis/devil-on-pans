@@ -2,7 +2,7 @@
 name: 'EPIC: <TITLE>'
 about: devil-on-pans epics templates
 title: ''
-labels: ''
+labels: EPIC
 assignees: noemichis
 
 ---
