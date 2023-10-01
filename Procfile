@@ -1,0 +1,1 @@
+web: gunicorn devil_on_pans.wsgi
