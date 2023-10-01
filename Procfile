@@ -1,1 +1,1 @@
-web: gunicorn devil_on_pans.wsgi
+web: gunicorn devil_on_pans.wsgi:application
