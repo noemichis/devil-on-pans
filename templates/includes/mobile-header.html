@@ -5,7 +5,7 @@
     </a>
   </div>
   <ul class="d-flex list-unstyled justify-content-end m-0 d-md-none">
-    <li class="d-flex p-2 p-sm-1">
+    <li class="d-flex p-2 p-sm-4">
       <a class="text-white nav-link" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         <div class="text-center">
@@ -13,7 +13,7 @@
           <p class="my-0 d-none d-sm-block">Search</p>
         </div>
       </a>
-      <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-3  bg-black" aria-labelledby="mobile-search">
+      <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0  bg-black" aria-labelledby="search">
         <form class="form" method="GET" action="#">
           <div class="input-group w-100">
             <input class="form-control border border-white rounded-0" type="text" name="q" placeholder="Search...">
@@ -28,7 +28,7 @@
         </form>
       </div>
     </li>
-    <li class="dropdown p-2 p-sm-1">
+    <li class="dropdown p-2 p-sm-4">
       <a class="text-white nav-link d-md-none" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         <div class="text-center">
@@ -49,7 +49,7 @@
         {% endif %}
       </div>
     </li>
-    <li class="p-2 p-sm-1">
+    <li class="p-2 p-sm-4">
       <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link d-md-none"
         href="#">
         <div class="text-center">
@@ -65,3 +65,4 @@
       </a>
     </li>
   </ul>
+</div>
