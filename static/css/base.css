@@ -4,9 +4,13 @@ html {
 
 body {
   background: url('/media/background.jpg') no-repeat center center fixed;
-  background-size: cover;
+  /* background-size: cover; */
   height: calc(100vh - 150px);
   font-family: 'Lato', sans-serif;
+}
+
+h4 {
+  font-size: calc(1.275rem + 0.5vw);
 }
 
 hr {
@@ -27,12 +31,69 @@ hr {
   height: auto;
 }
 
+.nav-item {
+  font-family: 'Niramit', sans-serif;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(33, 37, 41, 0.5);
+  z-index: -1;
+}
+
+.header-container {
+  padding-top: 128px;
+}
+
+.btn {
+  letter-spacing: 2px;
+}
+
+.order-button,
+.hire-button {
+  min-width: 120px;
+}
+
+#index-title {
+  font-size: calc(2.125rem + 1.5vw);
+}
+
 /*  Media Queries */
 
-/* Navbar logo required size increase on slightly larger screens  */
+/* Navbar logo required size increase on 400px up screens  */
 @media (min-width: 400px) {
   #logo-img {
     width: 175px;
     height: auto;
+  }
+
+  .header-container {
+    padding-top: 183px;
+  }
+
+  #index-title {
+    font-size: calc(2.5rem + 1.5vw)
+  }
+}
+
+/* increase top padding on medium and up */
+@media (min-width: 768px) {
+
+  .body {
+    height: calc(100vh - 248px);
+  }
+
+  .header-container {
+    padding-top: 248px;
+  }
+
+  /* increase button width on md and up */
+  .order-button,
+  .hire-button {
+    min-width: 150px;
   }
 }
