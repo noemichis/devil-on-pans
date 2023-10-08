@@ -5,14 +5,34 @@ html {
 body {
   background: url('/media/background.jpg') no-repeat center center fixed;
   background-size: cover;
-  height: calc(100vh);
+  height: calc(100vh - 150px);
+  font-family: 'Lato', sans-serif;
+}
+
+hr {
+  width: 80% !important;
+}
+
+.logo-font {
+  font-family: 'Niramit', sans-serif;
 }
 
 .logo-link {
   width: fit-content;
+  font-family: 'Niramit', sans-serif;
 }
 
 #logo-img {
   width: 120px;
   height: auto;
+}
+
+/*  Media Queries */
+
+/* Navbar logo required size increase on slightly larger screens  */
+@media (min-width: 400px) {
+  #logo-img {
+    width: 175px;
+    height: auto;
+  }
 }
