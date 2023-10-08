@@ -30,17 +30,18 @@
 
 <body>
   <header class="container-fluid fixed-top">
-    <div id="topnav" class="row bg-black align-items-center d-none d-md-flex">
-      <div class="col p-1 my-auto">
-        <a href=" {% url 'home' %}" class="d-flex align-items-center nav-link logo-link">
+    <div id="topnav" class="row bg-dark align-items-center d-none d-md-flex">
+      <div class="col p-1 my-auto d-flex align-items-center">
+        <a href=" {% url 'home' %}" class="nav-link logo-link">
           <img src="/media/logo.png" id="logo-img" class="px-1" alt="Devil on Pans logo">
-          <div class="d-none d-md-block align-items-center text-white">
-            <h2 class="my-0">
-              <strong>Devil On Pans</strong>
-            </h2>
-            <p class="m-0">Local Catering & Private Chef</p>
-          </div>
+
         </a>
+        <div class="d-none d-md-block align-items-center text-white">
+          <h2 class="my-0 logo-font">
+            <strong>Devil On Pans</strong>
+          </h2>
+          <p class="m-0">Local Catering & Private Chef</p>
+        </div>
       </div>
       <div class="col p-1 my-auto">
         <ul class="d-flex list-unstyled justify-content-end m-0">
@@ -52,7 +53,7 @@
                 <p class="my-2 d-none d-sm-block">Search</p>
               </div>
             </a>
-            <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-md-3  bg-black" aria-labelledby="search">
+            <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-md-3  bg-dark" aria-labelledby="search">
               <form class="form" method="GET" action="#">
                 <div class="input-group w-100">
                   <input class="form-control border border-white rounded-0" type="text" name="q"
@@ -106,7 +107,7 @@
         </ul>
       </div>
     </div>
-    <div class="row bg-black">
+    <div class="row bg-dark">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark p-0">
         <div class="container-fluid me-1">
           <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
