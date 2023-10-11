@@ -3,7 +3,8 @@ html {
 }
 
 body {
-  background: url('/media/background.jpg') no-repeat center center fixed;
+  background-color: rgba(33, 37, 41);
+  /* background: url('/media/background.jpg') no-repeat center center fixed; */
   /* background-size: cover; */
   height: calc(100vh - 150px);
   font-family: 'Lato', sans-serif;
@@ -62,6 +63,10 @@ hr {
   font-size: calc(2.125rem + 1.5vw);
 }
 
+.home-container {
+  background: url('/media/background.jpg') no-repeat center center fixed;
+}
+
 /*  Media Queries */
 
 /* Navbar logo required size increase on 400px up screens  */
@@ -83,7 +88,7 @@ hr {
 /* increase top padding on medium and up */
 @media (min-width: 768px) {
 
-  .body {
+  body {
     height: calc(100vh - 248px);
   }
 
