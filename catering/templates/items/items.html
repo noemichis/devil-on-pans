@@ -12,10 +12,29 @@
 
 {% block content %}
 <div class="container-fluid bg-white py-5">
-  <div class="row">
-    <div class="col">
-      {{ items }}
+  <div class="row mb-3">
+    <div class="col-12 my-2 text-dark text-center">
+      <h1 class="logo-font p-2 mt-0"><strong>Local catering</strong></h1>
     </div>
+  </div>
+  <div class="row">
+    {% if items %}
+    {% for item in items %}
+    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mx-auto mb-3">
+      <div class="card h-100 rounded-0 border-0 bg-dark text-white p-3 mb-3">
+        <img src="../../../media/background.jpg" class="card-img-top rounded-0 border border-5 border-dark" alt="#">
+        <div class="card-body">
+          <a href="#">
+            <h5 class="card-title">{{ item.name }}</h5>
+          </a>
+          <p class="card-text">{{ item.description }}</p>
+          <h5>€{{ item.price }}</h5>
+          <a href="#" class="btn btn-light py-2"><strong>Add to basket</strong></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
   </div>
 </div>
 {% endblock %}
