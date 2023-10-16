@@ -67,6 +67,11 @@ hr {
   background: url('/media/background.jpg') no-repeat center center fixed;
 }
 
+.oos-nohover {
+  pointer-events: none;
+}
+
+
 /*  Media Queries */
 
 /* Navbar logo required size increase on 400px up screens  */
