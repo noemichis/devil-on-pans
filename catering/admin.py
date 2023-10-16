@@ -8,6 +8,8 @@ class ItemAdmin(admin.ModelAdmin):
         'category',
         'sku',
         'price',
+        'in_stock',
+        'stock_nr',
         'image',
     )
 
