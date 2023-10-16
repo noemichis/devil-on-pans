@@ -21,8 +21,33 @@
     <div class="col-12 col-sm-10 col-md-6 col-lg-4">
       <div class="item-detail-container p-2">
         <h4 class="logo-font text-uppercase">{{ item.name }}</h4>
-        <h5 class="mb-1 mt-auto">€{{ item.price }}</h5>
+        {% if item.category %}
+        <p class="small mt-0 mb-1">
+          Category:
+          <a class="text-muted" href="{% url 'items' %}?category={{ item.category.name }}">
+            </i>{{ item.category.friendly_name }}
+          </a>
+        </p>
+        {% endif %}
+        <h5 class="my-3">Price: €{{ item.price }}</h5>
+        {% if item.in_stock %}
+        <p class="small text-success mb-1"><strong>In Stock</strong></p>
+        {% if item.stock_nr < 5 %}
+        <p class="small text-danger mt-0"><i class="far fa-bell fa-sm"></i> Hurry! Only {{ item.stock_nr }} left.</p>
+        {% endif %}
+        {% else %}
+        <p class="small text-danger"><strong>Out of Stock</strong></p>
+        {% endif %}
+
         <p class="card-text fst-italic">{{ item.description }}</p>
+        <div class="d-flex">
+          <p class="me-1">Allergens:</p>
+          <ul class="list-inline">
+            {% for allergen in item.allergens.all %}
+            <li class="list-inline-item fs-6 m-0"><strong>{{ allergen.name }} |</strong></li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
