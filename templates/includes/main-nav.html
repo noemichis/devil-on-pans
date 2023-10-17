@@ -13,10 +13,11 @@
         Local Catering
       </a>
       <div class="dropdown-menu border-0" aria-labelledby="local-catering-link">
-        <a href="#" class="dropdown-item">Afternoon Tea</a>
-        <a href="#" class="dropdown-item">Lunch menu</a>
-        <a href="#" class="dropdown-item">Dinner specials</a>
-        <a href="{% url 'items' %}" class="dropdown-item">Show all items</a>
+        <a href="{% url 'items' %}?category=afternoon_tea" class="dropdown-item">Afternoon Tea</a>
+        <a href="{% url 'items' %}?category=lunch" class="dropdown-item">Lunch menu</a>
+        <a href="{% url 'items' %}?category=dinner_specials" class="dropdown-item">Dinner specials</a>
+        <a href="{% url 'items' %}?category=afternoon_tea,lunch,dinner_specials" class="dropdown-item">Show all
+          items</a>
       </div>
     </li>
 

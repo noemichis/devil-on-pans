@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Item
+from .models import Item, Category
 
 
 def all_items(request):
@@ -11,8 +11,14 @@ def all_items(request):
 
     items = Item.objects.all()
     query = None
+    categories = None
 
     if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            items = items.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -21,14 +27,17 @@ def all_items(request):
                   )
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(
-              description__icontains=query
+            queries = (
+              Q(name__icontains=query) |
+              Q(description__icontains=query) |
+              Q(category__name__icontains=query)
               )
             items = items.filter(queries)
 
     context = {
       'items': items,
       'search_term': query,
+      'current_categories': categories,
     }
 
     return render(request, 'items/items.html', context)
