@@ -13,12 +13,12 @@
 {% block content %}
 <div class="container-fluid bg-white py-3">
   <div class="row justify-content-center mb-3 mx-auto">
-    <div class="col-12 col-sm-10 col-md-6 col-lg-4">
-      <div class="image-container ms-md-3">
+    <div class="col-12 col-sm-10 col-md-6 col-xl-4">
+      <div class="image-container">
         <img src="../../../media/background.jpg" class="img-fluid" alt="{{ item.name }}">
       </div>
     </div>
-    <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+    <div class="col-12 col-sm-10 col-md-6 col-xl-4">
       <div class="item-detail-container p-2">
         <h4 class="logo-font text-uppercase">{{ item.name }}</h4>
         {% if item.category %}
@@ -48,6 +48,28 @@
             {% endfor %}
           </ul>
         </div>
+        {% if item.in_stock %}
+        <div class="d-flex py-4">
+          <form class="form w-100" action="{% url 'add_to_bag' item.id %}" method="POST">
+            {% csrf_token %}
+            <div class="d-flex align-items-center w-100">
+              <div class="pe-3">
+                <p class="text-dark m-0"><strong>Quantity:</strong></p>
+              </div>
+              <div class="d-flex flex-1 border border-dark input-group">
+                <input class="form-control px-2 border-0 qty_input" type="number" name="quantity" value="1" min="1"
+                  max="99" data-item_id="{{ item.id }}">
+              </div>
+            </div>
+            <div class="d-flex">
+              <input class="w-100 btn btn-dark rounded-0 text-uppercase py-3 my-2" type="submit" value="Add To Basket">
+              <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </div>
+          </form>
+        </div>
+        {% else %}
+        <div class="w-100 btn btn-dark py-2 my-3 rounded-0 oos-nohover"><strong>Out of Stock</strong></div>
+        {% endif %}
       </div>
     </div>
   </div>
