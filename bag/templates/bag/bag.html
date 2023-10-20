@@ -11,11 +11,29 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-  <div class="overlay">
+<div class="container-fluid bg-white py-5">
+  <div class="row p-2 w-80">
+    <div class="col-12 my-1 text-dark text-center">
+      <h1 class="logo-font p-2 mt-0"><strong>Shopping Bag</strong></h1>
+    </div>
   </div>
-  <div class="container h-100 center">
-    <div class="row p-2 w-80"></div>
+  <hr class="text-dark p-1 mb-0 mx-auto">
+  <div class="row p-2 w-80">
+    <div class="col-12 my-1 text-dark text-center">
+      {% if bag_items %}
+      <div>
+
+      </div>
+      {% else %}
+      <p class="lead mb-5">There is nothing in your bag yet.</p>
+      <a href="{% url 'items' %}" class="btn btn-dark btn-lg rounded-0 text-uppercase py-3">
+        <span class="icon">
+          <i class="fas fa-chevron-left"></i>
+        </span>
+        <span class="text-uppercase">Keep Shopping</span>
+      </a>
+      {% endif %}
+    </div>
   </div>
 </div>
 {% endblock %}
