@@ -25,7 +25,7 @@
         <p class="small mt-0 mb-1">
           Category:
           <a class="text-muted" href="{% url 'items' %}?category={{ item.category.name }}">
-            </i>{{ item.category.friendly_name }}
+            {{ item.category.friendly_name }}
           </a>
         </p>
         {% endif %}
