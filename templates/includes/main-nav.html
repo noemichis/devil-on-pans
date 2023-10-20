@@ -6,17 +6,16 @@
         Welcome
       </a>
     </li>
-
     <li class="nav-item dropdown">
       <a class="font-weight-bold nav-link text-white mr-5" href="#" id="local-catering-link" data-bs-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         Local Catering
       </a>
       <div class="dropdown-menu border-0" aria-labelledby="local-catering-link">
-        <a href="{% url 'items' %}?category=afternoon_tea" class="dropdown-item">Afternoon Tea</a>
-        <a href="{% url 'items' %}?category=lunch" class="dropdown-item">Lunch menu</a>
-        <a href="{% url 'items' %}?category=dinner_specials" class="dropdown-item">Dinner specials</a>
-        <a href="{% url 'items' %}?category=afternoon_tea,lunch,dinner_specials" class="dropdown-item">Show all
+        {% for category in categories %}
+        <a href="{% url 'items' %}?category={{ category.name }}" class="dropdown-item">{{ category.friendly_name }}</a>
+        {% endfor %}
+        <a href="{% url 'items' %}" class="dropdown-item">Show all
           items</a>
       </div>
     </li>
