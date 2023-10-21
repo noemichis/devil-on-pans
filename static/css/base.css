@@ -94,6 +94,10 @@ input[name="quantity"] {
 }
 
 
+.no-space {
+  letter-spacing: 0px !important;
+}
+
 /*  Media Queries */
 
 /* Navbar logo required size increase on 400px up screens  */

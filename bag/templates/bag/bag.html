@@ -19,9 +19,9 @@
     </div>
   </div>
   <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+  {% if bag_items %}
   <div class="row bag-item-container mx-auto p-2">
     <div class="col-12 my-1 mx-auto text-dark text-center">
-      {% if bag_items %}
       {% for item in bag_items %}
       <div class="mx-auto my-1">
         <div class="d-flex flex-wrap justify-content-start align-items-center">
@@ -56,65 +56,61 @@
                     </span>
                   </button>
                 </div>
+              </div>
             </form>
-            <div class="d-flex p-1 justify-content-end">
-              <a class="update-link btn btn-dark rounded-0 m-0"><small>Update <i
-                    class="fas fa-shopping-basket"></i></small></a>
-            </div>
-            <div class="d-flex p-1 justify-content-end">
-              <a class="remove-item btn btn-danger rounded-0 m-0" id="remove_{{ item.item_id }}"><small>Remove
-                  <i class="fas fa-trash-alt"></i></small></a>
-            </div>
+            <a class="update-link btn btn-dark rounded-0 m-1"><small>Update <i
+                  class="fas fa-shopping-basket"></i></small></a>
+            <a class="remove-item btn btn-danger rounded-0 m-0" id="remove_{{ item.item_id }}"><small>Remove
+                <i class="fas fa-trash-alt"></i></small></a>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
     <hr class="w-100 text-dark p-1 mb-0 mx-auto">
-    {% endfor %}
-    {% else %}
-    <p class="lead mb-5">There is nothing in your bag yet.</p>
-    {% endif %}
   </div>
-</div>
-<div class="row bag-item-container mx-auto p-2">
-  <div class="col-12 my-1 mx-auto text-dark text-end">
-    <div class="d-flex justify-content-between">
-      <h6><strong>Order Total:</strong></h6>
-      <h6><strong>€{{ total|floatformat:2 }}</strong></h6>
+  <div class="row bag-item-container mx-auto p-2">
+    <div class="col-12 my-1 mx-auto text-dark text-end">
+      <div class="d-flex justify-content-between">
+        <h6><strong>Order Total:</strong></h6>
+        <h6><strong>€{{ total|floatformat:2 }}</strong></h6>
+      </div>
+      <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+      <div class="d-flex justify-content-between">
+        <h6>Delivery:</h6>
+        <h6>€{{ delivery|floatformat:2 }}</h6>
+      </div>
+      <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+      <div class="d-flex justify-content-between">
+        <h4 class="mt-4"><strong>Grand Total:</strong></h4>
+        <h4 class="mt-4"><strong> €{{ grand_total|floatformat:2 }}</strong></h4>
+      </div>
+      {% if free_delivery_delta > 0 %}
+      <p class="mb-1 text-danger">
+        You could get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
+      </p>
+      {% endif %}
     </div>
-    <hr class="w-100 text-dark p-1 mb-0 mx-auto">
-    <div class="d-flex justify-content-between">
-      <h6>Delivery:</h6>
-      <h6>€{{ delivery|floatformat:2 }}</h6>
-    </div>
-    <hr class="w-100 text-dark p-1 mb-0 mx-auto">
-    <div class="d-flex justify-content-between">
-      <h4 class="mt-4"><strong>Grand Total:</strong></h4>
-      <h4 class="mt-4"><strong> €{{ grand_total|floatformat:2 }}</strong></h4>
-    </div>
-    {% if free_delivery_delta > 0 %}
-    <p class="mb-1 text-danger">
-      You could get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
-    </p>
-    {% endif %}
   </div>
-</div>
-<div class="row bag-item-container mx-auto p-2">
-  <div class="d-flex flex-wrap align-items-center justify-content-center">
-    <a href="{% url 'items' %}" class="btn btn-dark btn-lg rounded-0 py-2 py-md-3 my-2 me-2">
-      <span class="icon">
-        <i class="fas fa-chevron-left"></i>
-      </span>
-      <span class="text-uppercase">Keep Shopping</span>
-    </a>
-    <a href="#" class="btn btn-dark btn-lg rounded-0 py-2 py-md-3">
-      <span class="text-uppercase">Secure Checkout</span>
-      <span class="icon">
-        <i class="fas fa-lock"></i>
-      </span>
-    </a>
+  {% else %}
+  <p class="lead mb-5 text-center">There is nothing in your bag yet.</p>
+  {% endif %}
+  <div class="row bag-item-container mx-auto p-2 my-3">
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
+      <a href="{% url 'items' %}" class="btn btn-dark no-space btn-lg rounded-0 py-2 py-md-3 my-2 me-2">
+        <span class="icon">
+          <i class="fas fa-chevron-left"></i>
+        </span>
+        <span class="text-uppercase">Keep Shopping</span>
+      </a>
+      <a href="#" class="btn btn-dark btn-lg no-space rounded-0 py-2 py-md-3">
+        <span class="text-uppercase">Secure Checkout</span>
+        <span class="icon">
+          <i class="fas fa-lock"></i>
+        </span>
+      </a>
+    </div>
   </div>
-</div>
 </div>
 {% endblock %}
 
@@ -125,7 +121,7 @@
 <script type="text/javascript">
   // Update quantity on click
   $('.update-link').click(function (e) {
-    var form = $(this).closest('.update-form');
+    var form = $(this).prev('.update-form');
     form.submit();
   })
 
