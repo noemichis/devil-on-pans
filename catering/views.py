@@ -10,7 +10,7 @@ def all_items(request):
     View that returns all the items
     """
 
-    item = get_object_or_404(Item, pk=item_id)
+    items = Item.objects.all()
     query = None
     categories = None
     sort = None
