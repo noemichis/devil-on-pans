@@ -12,27 +12,74 @@
 
 {% block content %}
 <div class="container-fluid bg-white py-5">
-  <div class="row p-2 w-80">
+  <div class="row p-2">
     <div class="col-12 my-1 text-dark text-center">
       <h1 class="logo-font p-2 mt-0"><strong>Shopping Bag</strong></h1>
     </div>
   </div>
   <hr class="text-dark p-1 mb-0 mx-auto">
-  <div class="row p-2 w-80">
-    <div class="col-12 my-1 text-dark text-center">
+  <div class="row bag-item-container mx-auto p-2">
+    <div class="col-12 my-1 mx-auto text-dark text-center">
       {% if bag_items %}
-      <div>
-
+      {% for item in bag_items %}
+      <div class="mx-auto my-1">
+        <div class="d-flex justify-content-start">
+          <div class="d-flex my-auto me-2">
+            <div class="bag-image-container text-end">
+              <img src="../../../media/background.jpg" class="bag-img p-1" alt="{{ item.item.name }}">
+            </div>
+          </div>
+          <div class="flex-1 bag-item-details text-start">
+            <h5 class="logo-font text-dark m-0 p-1">{{ item.item.name }}</h5>
+            <h6 class="m-0 p-1"><strong>€{{ item.item.price }}</strong></h6>
+            <p class="m-0 p-1"><small>Qty: {{ item.quantity }}</small></p>
+          </div>
+        </div>
       </div>
+      <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+      {% endfor %}
       {% else %}
       <p class="lead mb-5">There is nothing in your bag yet.</p>
-      <a href="{% url 'items' %}" class="btn btn-dark btn-lg rounded-0 text-uppercase py-3">
+      {% endif %}
+    </div>
+  </div>
+  <div class="row bag-item-container mx-auto p-2">
+    <div class="col-12 my-1 mx-auto text-dark text-end">
+      <div class="d-flex justify-content-between">
+        <h6><strong>Order Total:</strong></h6>
+        <h6><strong>€{{ total|floatformat:2 }}</strong></h6>
+      </div>
+      <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+      <div class="d-flex justify-content-between">
+        <h6>Delivery:</h6>
+        <h6>€{{ delivery|floatformat:2 }}</h6>
+      </div>
+      <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+      <div class="d-flex justify-content-between">
+        <h4 class="mt-4"><strong>Grand Total:</strong></h4>
+        <h4 class="mt-4"><strong> €{{ grand_total|floatformat:2 }}</strong></h4>
+      </div>
+      {% if free_delivery_delta > 0 %}
+      <p class="mb-1 text-danger">
+        You could get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
+      </p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="row bag-item-container mx-auto p-2">
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
+      <a href="{% url 'items' %}" class="btn btn-dark btn-lg rounded-0 py-2 py-md-3 my-2 me-2">
         <span class="icon">
           <i class="fas fa-chevron-left"></i>
         </span>
         <span class="text-uppercase">Keep Shopping</span>
       </a>
-      {% endif %}
+      <a href="#" class="btn btn-dark btn-lg rounded-0 py-2 py-md-3">
+        <span class="text-uppercase">Secure Checkout</span>
+        <span class="icon">
+          <i class="fas fa-lock"></i>
+        </span>
+      </a>
     </div>
   </div>
 </div>
