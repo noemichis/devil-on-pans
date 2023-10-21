@@ -10,7 +10,7 @@ def all_items(request):
     View that returns all the items
     """
 
-    items = Item.objects.all()
+    item = get_object_or_404(Item, pk=item_id)
     query = None
     categories = None
     sort = None
@@ -40,7 +40,7 @@ def all_items(request):
             query = request.GET['q']
             if not query:
                 messages.error(
-                    request, "You didn't enter any search criteria!"
+                    request, "Please enter a search criteria!"
                 )
                 return redirect(reverse('items'))
 
@@ -71,7 +71,7 @@ def item_detail(request, item_id):
     item = get_object_or_404(Item, pk=item_id)
 
     context = {
-      'item': item,
+            'item': item,
     }
 
     return render(request, 'items/item_detail.html', context)
