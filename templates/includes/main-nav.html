@@ -1,0 +1,53 @@
+<div class="collapse navbar-collapse pb-2" id="main-nav">
+  <ul class="navbar-nav w-auto mx-auto">
+    <li class="nav-item dropdown">
+      <a class="font-weight-bold nav-link text-white mr-5" href="#" id="welcome-link" data-bs-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Welcome
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="font-weight-bold nav-link text-white mr-5" href="{% url 'items' %}" id="all-items-link">
+        All Items
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="font-weight-bold nav-link text-white mr-5" href="#" id="local-catering-link" data-bs-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Local Catering
+      </a>
+      <div class="dropdown-menu border-0" aria-labelledby="local-catering-link">
+        {% for category in categories %}
+        <a href="{% url 'items' %}?category={{ category.name }}" class="dropdown-item">{{ category.friendly_name }}</a>
+        {% endfor %}
+        <a href="{% url 'items' %}" class="dropdown-item">Show all
+          items</a>
+      </div>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="font-weight-bold nav-link text-white mr-5" href="#" id="chef-hire-link" data-bs-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Chef Hire
+      </a>
+      <div class="dropdown-menu border-0" aria-labelledby="chef-hire-link">
+        <a href="#" class="dropdown-item">Private dining</a>
+        <a href="#" class="dropdown-item">Culinary experiences</a>
+        <a href="#" class="dropdown-item">Special occasions</a>
+        <a href="#" class="dropdown-item">Small events</a>
+        <a href="#" class="dropdown-item">Show all items</a>
+      </div>
+    </li>
+
+    <li class="nav-item dropdown">
+      <a class="font-weight-bold nav-link text-white" href="#" id="about-link" data-bs-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        About Us
+      </a>
+      <div class="dropdown-menu border-0" aria-labelledby="about-link">
+        <a href="#" class="dropdown-item">About</a>
+        <a href="#" class="dropdown-item">Testimonials</a>
+        <a href="#" class="dropdown-item">Contact Us</a>
+      </div>
+    </li>
+  </ul>
+</div>

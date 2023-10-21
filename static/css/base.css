@@ -1,0 +1,162 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: rgba(33, 37, 41);
+  /* background: url('/media/background.jpg') no-repeat center center fixed; */
+  /* background-size: cover; */
+  height: calc(100vh - 150px);
+  font-family: 'Lato', sans-serif;
+}
+
+h4 {
+  font-size: calc(1.275rem + 0.5vw);
+}
+
+hr {
+  width: 80% !important;
+}
+
+a,
+li {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.logo-font {
+  font-family: 'Niramit', sans-serif;
+}
+
+.logo-link {
+  width: fit-content;
+  font-family: 'Niramit', sans-serif;
+}
+
+#logo-img {
+  width: 120px;
+  height: auto;
+}
+
+.nav-item {
+  font-family: 'Niramit', sans-serif;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(33, 37, 41, 0.5);
+  z-index: -1;
+}
+
+.header-container {
+  padding-top: 128px;
+}
+
+.btn {
+  letter-spacing: 2px;
+}
+
+.order-button,
+.hire-button {
+  min-width: 120px;
+}
+
+#index-title {
+  font-size: calc(2.125rem + 1.5vw);
+}
+
+.home-container {
+  background: url('/media/background.jpg') no-repeat center center fixed;
+}
+
+.oos-nohover {
+  pointer-events: none;
+}
+
+.bag-image-container {
+  width: 100px;
+}
+
+.bag-img {
+  width: 100px;
+}
+
+input[name="quantity"] {
+  width: 50px !important;
+  flex: none !important;
+}
+
+
+.no-space {
+  letter-spacing: 0px !important;
+}
+
+.message-container {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 99999999999;
+}
+
+.custom-toast {
+  overflow: visible;
+}
+
+.toast-capper {
+  height: 2px;
+}
+
+/*  Media Queries */
+
+/* Navbar logo required size increase on 400px up screens  */
+@media (min-width: 400px) {
+  #logo-img {
+    width: 175px;
+    height: auto;
+  }
+
+  .header-container {
+    padding-top: 183px;
+  }
+
+  #index-title {
+    font-size: calc(2.5rem + 1.5vw)
+  }
+}
+
+/* increase top padding on medium and up */
+@media (min-width: 768px) {
+
+  body {
+    height: calc(100vh - 248px);
+  }
+
+  .header-container {
+    padding-top: 248px;
+  }
+
+  /* increase button width on md and up */
+  .order-button,
+  .hire-button {
+    min-width: 150px;
+  }
+
+  .bag-item-container {
+    width: 80% !important;
+  }
+
+  .bag-image-container {
+    width: 150px;
+  }
+
+  .bag-img {
+    width: 150px;
+  }
+}
