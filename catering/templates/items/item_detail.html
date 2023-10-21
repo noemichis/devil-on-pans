@@ -57,8 +57,20 @@
                 <p class="text-dark m-0"><strong>Quantity:</strong></p>
               </div>
               <div class="d-flex flex-1 border border-dark input-group">
-                <input class="form-control px-2 border-0 qty_input" type="number" name="quantity" value="1" min="1"
-                  max="99" data-item_id="{{ item.id }}">
+                <button class="decrement-qty btn btn-dark rounded-0" data-item_id="{{ item.id }}"
+                  id="decrement-qty_{{ item.id }}">
+                  <span class="icon">
+                    <i class="fas fa-minus"></i>
+                  </span>
+                </button>
+                <input id="id_qty_{{ item.id }}" class=" form-control px-2 border-0 qty_input" type="number"
+                  name="quantity" value="1" min="1" max="{{ item.stock_nr }}" data-item_id="{{ item.id }}">
+                <button class="increment-qty btn btn-dark rounded-0" data-item_id="{{ item.id }}"
+                  id="increment-qty_{{ item.id }}">
+                  <span class="icon">
+                    <i class="fas fa-plus"></i>
+                  </span>
+                </button>
               </div>
             </div>
             <div class="d-flex">
@@ -74,4 +86,9 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+{% include 'items/includes/quantity_input_script.html' %}
 {% endblock %}
