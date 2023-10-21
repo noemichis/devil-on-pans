@@ -18,6 +18,15 @@ hr {
   width: 80% !important;
 }
 
+a,
+li {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
 .logo-font {
   font-family: 'Niramit', sans-serif;
 }
@@ -79,6 +88,10 @@ hr {
   width: 100px;
 }
 
+input[name="quantity"] {
+  width: 50px !important;
+  flex: none !important;
+}
 
 
 /*  Media Queries */
