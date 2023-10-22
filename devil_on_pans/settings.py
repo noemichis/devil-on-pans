@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'storages',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +67,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-noemichis-devilonpans-36befbas33z.ws-eu105.gitpod.io']
+
 ROOT_URLCONF = 'devil_on_pans.urls'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
@@ -85,6 +93,10 @@ TEMPLATES = [
                 'catering.contexts.categories_context',
                 'bag.contexts.bag_context',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
