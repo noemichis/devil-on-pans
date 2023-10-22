@@ -23,9 +23,9 @@
       {% endfor %}
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="row mt-1 mb-2">
-      <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+      <div class="col-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
         <div class="sort-select-wrapper w-50">
           <select id="sort-selector"
             class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}dark{% endif %}">
@@ -43,7 +43,7 @@
           </select>
         </div>
       </div>
-      <div class="col-12 col-md-6 order-md-first">
+      <div class="col-6 order-md-first">
         <p class="text-muted mt-1 text-center text-md-left">
           {% if search_term or current_categories or current_sorting != 'None_None' %}
           <span class="small text-dark"><a href="{% url 'items' %}">All items</a> | </span>
@@ -56,7 +56,7 @@
     <div class="row">
       {% if items %}
       {% for item in items %}
-      <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mx-auto my-3">
+      <div class="col-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 mx-auto my-3">
         <div class="card h-100 rounded-0 border-0 bg-dark text-white p-3 mb-3">
           {% if item.image %}
           <a href="{% url 'item_detail' item.id %}">
@@ -65,7 +65,7 @@
           </a>
           {% else %}
           <a href="{% url 'item_detail' item.id %}">
-            <img class="card-img-top rounded-0 border border-5 border-dark" src="{{ MEDIA_URL }}bg-img.jpg"
+            <img class="card-img-top rounded-0 border border-5 border-dark" src="{{ MEDIA_URL }}noimage.png"
               alt="{{ item.name }}">
           </a>
           {% endif %}
@@ -73,7 +73,7 @@
             <a href="{% url 'item_detail' item.id %}">
               <h5 class="card-title">{{ item.name }}</h5>
             </a>
-            <p class="card-text fst-italic">{{ item.description }}</p>
+            <p class="card-text fst-italic">{{ item.description | slice:":75" }}...</p>
             <h5 class="mb-1 mt-auto">€{{ item.price }}</h5>
             {% if item.category %}
             <p class="small mt-1 mb-0">
@@ -93,7 +93,7 @@
         </div>
       </div>
       {% if forloop.counter|divisibleby:1 %}
-      <div class="col-12 d-sm-none">
+      <div class="col-12 d-md-none">
         <hr class="mx-auto text-dark">
       </div>
       {% endif %}

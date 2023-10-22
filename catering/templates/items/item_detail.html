@@ -21,7 +21,7 @@
         </a>
         {% else %}
         <a href="{% url 'item_detail' item.id %}">
-          <img class="img-fluid" src="{{ MEDIA_URL }}bg-img.jpg" alt="{{ item.name }}">
+          <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
         </a>
         {% endif %}
       </div>
