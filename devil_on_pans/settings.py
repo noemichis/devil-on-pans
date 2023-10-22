@@ -67,7 +67,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-noemichis-devilonpans-36befbas33z.ws-eu105.gitpod.io']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-noemichis-devilonpans-36befbas33z.ws-eu105.gitpod.io',
+    'https://devil-on-pans-8a8a58db0f75.herokuapp.com',
+    ]
 
 ROOT_URLCONF = 'devil_on_pans.urls'
 
@@ -186,6 +189,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'devil-on-pans-8a8a58db0f75'
     AWS_S3_REGION_NAME = 'eu-west-1'
