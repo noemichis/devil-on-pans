@@ -77,7 +77,7 @@ a:hover {
 }
 
 .card-img-top {
-  max-height: 20vh;
+  height: 20vh;
   object-fit: cover;
 }
 
@@ -153,7 +153,7 @@ input[name="quantity"] {
   }
 
   .card-img-top {
-    max-height: 30vh;
+    height: 30vh;
     object-fit: cover;
   }
 
