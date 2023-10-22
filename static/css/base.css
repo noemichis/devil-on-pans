@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: rgba(33, 37, 41);
+  background-color: rgb(33, 37, 41);
   /* background: url('/media/background.jpg') no-repeat center center fixed; */
   /* background-size: cover; */
   height: calc(100vh - 150px);
