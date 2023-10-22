@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load media %}
 {% load bag_tools %}
 
 {% block page_header %}
@@ -27,7 +28,15 @@
         <div class="d-flex flex-wrap justify-content-start align-items-center">
           <div class="d-flex my-auto me-2">
             <div class="bag-image-container text-end">
-              <img src="../../../media/background.jpg" class="bag-img p-1" alt="{{ item.item.name }}">
+              {% if painting.image %}
+              <a href="{% url 'item_detail' item.id %}">
+                <img class="bag-img p-1" src="{{ item.image.url }}" alt="{{ item.name }}">
+              </a>
+              {% else %}
+              <a href="{% url 'item_detail' item.id %}">
+                <img class="bag-img p-1" src="{{ MEDIA_URL }}background.jpg" alt="{{ item.name }}">
+              </a>
+              {% endif %}
             </div>
           </div>
           <div class="flex-grow-1 text-start bag-item-details">

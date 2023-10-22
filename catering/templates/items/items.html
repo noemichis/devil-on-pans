@@ -58,7 +58,17 @@
       {% for item in items %}
       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mx-auto my-3">
         <div class="card h-100 rounded-0 border-0 bg-dark text-white p-3 mb-3">
-          <img src="../../../media/background.jpg" class="card-img-top rounded-0 border border-5 border-dark" alt="#">
+          {% if item.image %}
+          <a href="{% url 'item_detail' item.id %}">
+            <img class="card-img-top rounded-0 border border-5 border-dark" src="{{ item.image.url }}"
+              alt="{{ item.name }}">
+          </a>
+          {% else %}
+          <a href="{% url 'item_detail' item.id %}">
+            <img class="card-img-top rounded-0 border border-5 border-dark" src="{{ MEDIA_URL }}bg-img.jpg"
+              alt="{{ item.name }}">
+          </a>
+          {% endif %}
           <div class="card-body d-flex flex-column mb-0 pb-1">
             <a href="{% url 'item_detail' item.id %}">
               <h5 class="card-title">{{ item.name }}</h5>
