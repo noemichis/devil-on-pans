@@ -27,8 +27,8 @@
         <div class="d-flex flex-wrap justify-content-start align-items-center">
           <div class="d-flex my-auto me-2">
             <div class="bag-image-container text-end">
-              {% if item.image_url %}
-              <img class="bag-img p-1" src="{{ item.item_url }}" alt="{{ item.name }}">
+              {% if item.item.image %}
+              <img class="bag-img p-1" src="{{ item.item.image.url }}" alt="{{ item.name }}">
               {% else %}
               <img class="bag-img p-1" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
               {% endif %}

@@ -20,9 +20,9 @@
       <div class="row">
         <div class="col-3 my-1">
           {% if item.item.image %}
-          <img class="w-100" src="#" alt="{{ item.item.name }}">
+          <img class="toast-img" src="{{ item.item.image.url }}" alt="{{ item.name }}">
           {% else %}
-          <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.item.name }}">
+          <img class="toast-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
           {% endif %}
         </div>
         <div class="col-9">

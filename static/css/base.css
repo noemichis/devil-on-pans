@@ -123,6 +123,12 @@ input[name="quantity"] {
   height: 2px;
 }
 
+.toast-img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
 /*  Media Queries */
 
 /* Navbar logo required size increase on 400px up screens  */
