@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: rgba(33, 37, 41);
+  background-color: rgb(33, 37, 41);
   /* background: url('/media/background.jpg') no-repeat center center fixed; */
   /* background-size: cover; */
   height: calc(100vh - 150px);
@@ -77,7 +77,7 @@ a:hover {
 }
 
 .card-img-top {
-  max-height: 20vh;
+  height: 20vh;
   object-fit: cover;
 }
 
@@ -123,6 +123,12 @@ input[name="quantity"] {
   height: 2px;
 }
 
+.toast-img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
 /*  Media Queries */
 
 /* Navbar logo required size increase on 400px up screens  */
@@ -153,7 +159,7 @@ input[name="quantity"] {
   }
 
   .card-img-top {
-    max-height: 30vh;
+    height: 30vh;
     object-fit: cover;
   }
 

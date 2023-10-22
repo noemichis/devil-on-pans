@@ -51,7 +51,10 @@ INSTALLED_APPS = [
     'home',
     'catering',
     'bag',
+    'checkout',
     'storages',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +67,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-noemichis-devilonpans-36befbas33z.ws-eu105.gitpod.io',
+    'https://devil-on-pans-8a8a58db0f75.herokuapp.com',
+    ]
+
 ROOT_URLCONF = 'devil_on_pans.urls'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
@@ -84,6 +96,10 @@ TEMPLATES = [
                 'catering.contexts.categories_context',
                 'bag.contexts.bag_context',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
@@ -173,6 +189,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'devil-on-pans-8a8a58db0f75'
     AWS_S3_REGION_NAME = 'eu-west-1'
@@ -192,6 +213,10 @@ if 'USE_AWS' in os.environ:
 
 FREE_DELIVERY_THRESHOLD = 75
 STANDARD_DELIVERY = 10
+STRIPE_CURRENCY = 'eur'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
