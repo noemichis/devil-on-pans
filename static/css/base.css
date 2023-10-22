@@ -76,6 +76,16 @@ a:hover {
   background: url('/media/bg-img.jpg') no-repeat center center fixed;
 }
 
+.card-img-top {
+  max-height: 20vh;
+  object-fit: cover;
+}
+
+.img-fluid {
+  max-height: 40vh;
+  object-fit: cover;
+}
+
 .oos-nohover {
   pointer-events: none;
 }
@@ -140,6 +150,11 @@ input[name="quantity"] {
 
   .header-container {
     padding-top: 248px;
+  }
+
+  .card-img-top {
+    max-height: 30vh;
+    object-fit: cover;
   }
 
   /* increase button width on md and up */
