@@ -1,110 +1,151 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# DEVIL ON PANS
 
-Welcome noemichis,
+[amiresponsive](https://ui.dev/amiresponsive)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[live link](https://devil-on-pans-8a8a58db0f75.herokuapp.com)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## CONTENTS
+- [User Experience](#user-experience)
+    - [User Stories](#user-stories)
 
-## Gitpod Reminders
+- [Design](#design)
+    - [Colors](#colors)
+    - [Typography](#typograpy)
+    - [Wireframes](#wireframes)
+    - [Database Design](#database-design)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- [Agile](#agile)
 
-`python3 -m http.server`
+- [Features](#features)
 
-A blue button should appear to click: _Make Public_,
+- [Technologies](#technologies)
+    - [Languages](#languages)
+    - [Django packages](#django-packages)
+    - [Frameworks - Libraries - Programs](#frameworks---libraries---proograms)
 
-Another blue button should appear to click: _Open Browser_.
+- [Testing](#testing)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- [Deployment](#deployment)
+    - [Create Django Project](#create-django-project)
+    - [Deploy to Heroku](#deploy-to-heroku)
+    - [How to Fork](#how-to-fork)
+    - [How to Clone](#how-to-clone)
 
-A blue button should appear to click: _Make Public_,
+- [Credits](#credits)
+    - [Code](#code)
+    - [Content](#content)
 
-Another blue button should appear to click: _Open Browser_.
+- [Acknowledgements]
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## USER EXPERIENCE
 
-To log into the Heroku toolbelt CLI:
+### USER STORIES
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+|ID|User Stories|
+|--|:---|
+|[1]()|
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## DESIGN
 
-------
+### COLORS
 
-## Release History
+### DATABASE
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### AGILE
 
-**September 20 2023:** Update Python version to 3.9.17.
+- GitHub issues and Github Projects were used to plans and manage the development process.  
+- User Stories and Tasks were organized into Epics which then in Milestones
+- Some issues have been moved around over the course of development 
+- User stories have also been labeled according to the MoSCoW method.
+- As issues were handled they have been moved from the  **Todo this Iteration**, to **In Progress**, to **Done**. If an issue couldn't be approached it was moved back to the **Backlog** for reconsideration, then into **Won't Have** if couldn't be implemented.
+- The use of Agile has made the development process more efficient during active working times. Most of the calculations were made before major coding was done. 
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+Iterations planning
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+|Iteration|Description|Due Date|Complete on|Comments|
+|:--|:--|:--:|:--:|:--
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## FEATURES
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Landing page
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Navbar
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Footer
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Catering items page
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Item Details page
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Shopping bag
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Checkout page
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Error pages
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Login/logout/registration
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Toasts
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## TECHNOLOGIES
 
-------
+### LANGUAGES
 
-## FAQ about the uptime script
+- [Django](https://www.python.org/)
+- [Python](https://www.djangoproject.com/)
+- [HTML 5](https://en.wikipedia.org/wiki/HTML/)
+- [CSS 3](https://en.wikipedia.org/wiki/CSS)
 
-**Why have you added this script?**
+### DJANGO PACKAGES
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- [Gunicorn](https://gunicorn.org/) - server for Heroku
+- [django-allauth](https://django-allauth.readthedocs.io/) - user authentication
+- [psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL db Adapter
+- [boto3](https://pypi.org/project/boto3/) -AWS SDK for Phyton
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - use with database urls
+- [django-countries](https://pypi.org/project/django-countries/) - provides country fields to forms
+- [django-storages](https://pypi.org/project/django-storages/) - Django backend custom storage
+- [gunicorn](https://pypi.org/project/gunicorn/) - WSGI interface for Heroku deployment
+- [Pillow](https://pypi.org/project/Pillow/) 
+- [stripe](https://pypi.org/project/stripe/) - Stripe API
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### FRAMEWORKS - LIBRARIES - PROGRAMS
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- [GitHub](https://github.com/) - version control and source code
+- [Gitpod](https://gitpod.io) - cloud development environment
+- [Heroku](https://www.heroku.com/) - live deployment of project
+- [Bootstrap5](https://getbootstrap.com/) - easy use predefined styles
+- [Jquery](https://jquery.com/) - use with own script
+- [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL as a service
+- [Figma](https://www.figma.com) - wireframe design
+- [LucidChart](https://lucid.app/) - ERD diagram design
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
+- [Font Awesome](https://fontawesome.com/) - icons
+- [Google Fonts](https://fonts.google.com/) - typography
+- [CANVA](https://www.canva.com/) - help with logo design
+- [W3C Markup validation Service](https://validator.w3.org/) - validate HTML
+- [The W3C CSS Validation Service](https://jigsaw.w3.org/) - validate CSS
+- [JSHint](https://jshint.com/) - validate jQuery
+- [Am I Responsive](https://ui.dev/) - test responsiveness on different devices
+- [CI Python Linter](https://pep8ci.herokuapp.com/) - validate python code
+- [Code Spell Checker](https://open-vsx.org/extension/streetsidesoftware/code-spell-checker) - VS Code extension 
+- [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - VS Code extension
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+## TESTING
 
-**So….?**
+All testing can be found at [TESTING.md](TESTING.md)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## DEPLOYMENT 
 
-**Can I opt out?**
+### PREPARATION 
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### HEROKU DEPLOYMENT
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+## CREDITS
 
-**Anything more?**
+### CODE
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### CONTENT
 
----
-
-Happy coding!
+## ACKNOWLEDGEMENTS

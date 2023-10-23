@@ -70,9 +70,7 @@
           </a>
           {% endif %}
           <div class="card-body d-flex flex-column mb-0 pb-1">
-            <a href="{% url 'item_detail' item.id %}">
-              <h5 class="card-title">{{ item.name }}</h5>
-            </a>
+            <h5 class="card-title">{{ item.name }}</h5>
             <p class="card-text fst-italic">{{ item.description | slice:":75" }}...</p>
             <h5 class="mb-1 mt-auto">€{{ item.price }}</h5>
             {% if item.category %}
@@ -85,7 +83,8 @@
           </div>
           <div class="card-footer border-0 mb-2">
             {% if item.in_stock %}
-            <a href="#" class="btn btn-light py-2 w-100 rounded-0"><strong>Add to basket</strong></a>
+            <a href="{% url 'item_detail' item.id %}" class="btn btn-light py-2 w-100 rounded-0"><strong>View
+                details</strong></a>
             {% else %}
             <div class="btn btn-light mb-0 py-2 w-100 rounded-0 oos-nohover"><strong>Out of Stock</strong></div>
             {% endif %}
@@ -122,7 +121,7 @@
 {% block postload_js %}
 {{ block.super }}
 <!-- Sort selector script  -->
-<script type="text/javascript">
+<script>
   $('#sort-selector').change(function () {
     var selector = $(this);
     var currentUrl = new URL(window.location);
