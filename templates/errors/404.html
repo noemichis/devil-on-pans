@@ -8,15 +8,19 @@
             <div class="allauth-form-inner-content">
                 <h1 class="logo-font p-2 mt-0"><strong>ERROR 404</strong></h1>
                 <p class="logo-font p-2 mt-0"><strong>Page not found</strong></p>
+                <a href="{% url 'items' %}"
+                    class="order-button btn btn-dark btn-lg rounded-0 text-uppercase p-3 m-1">Order</a>
                 <hr class="w-100 text-dark p-1 mb-0 mx-auto">
             </div>
         </div>
-        {% endblock %}
+    </div>
+</div>
+{% endblock %}
 
-        {% block page_header %}
-        <div class="container header-container">
-            <div class="row">
-                <div class="col"></div>
-            </div>
-        </div>
-        {% endblock %}
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
