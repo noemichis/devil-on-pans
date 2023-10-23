@@ -311,6 +311,6 @@ A forked version of the project will appear in your repository
 
 ## ACKNOWLEDGEMENTS
 
-- I am greatly thankful to my partner. His support was just unmatched over the past year and helped me stay motivated until the end, regardless the difficulties.
+- I am greatly thankful to my partner. His support was just unmatched over the past year and helped me stay motivated until the end, regardless the recent difficulties.
 
 - All the resources Code Institute has offered us and the Slack community. 

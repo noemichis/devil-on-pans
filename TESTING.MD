@@ -13,31 +13,17 @@ Back to [README.md](README.md)
 
 ## TESTING
 
-### FEATURE TESTING
+Testing has taken place at all stages of development. Each feature has been released after it was functional.
 
-|Page|Feature|Test Scenario|Test Case|Result|
-|:---|:---:|:---:|:---:|:---:|
+User Stories have been tested before closure. 
 
-#### HTML
-Tested with [W3C Markup validation Service](https://validator.w3.org/)
-
-<details><summary>Home</summary>
-</details>
-
-#### CSS
-Tested with [The W3C CSS Validation Service](https://jigsaw.w3.org/)
-<details><summary>style.css</summary>
-</details>
-
-### JavaScript
-Tested with [JsHint](https://jshint.com/)
-<details><summary>jQuery result</summary>
-</details>
-
-#### CI Python Linter
-Tested with [CI Python Linter](https://pep8ci.herokuapp.com/)
 
 ## BUGS 
 
-<details><summary>Bug 1 </summary>
-</details>
+Several Bugs appeared at deployment to Heroku on various occasions, all seemed to be production and server issues related to python version and django. They have been documented in the Agile board on the go. 
+
+- Remove button from bag does not display toast message after deployment
+
+- Stripe payment intent is not a success after deployment, due to short time remaining will have to come back to it.
+
+
