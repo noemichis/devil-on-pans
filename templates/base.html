@@ -37,6 +37,7 @@
 </head>
 
 <body>
+  <!-- header -->
   <header class="container-fluid fixed-top">
     <div id="topnav" class="row bg-dark align-items-center d-none d-md-flex">
       <div class="col p-1 my-auto d-flex align-items-center">
@@ -52,8 +53,9 @@
       </div>
       <div class="col p-1 my-auto">
         <ul class="d-flex list-unstyled justify-content-end m-0">
+          <!-- Search -->
           <li class="d-flex p-3">
-            <a class="text-white nav-link" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true"
+            <a class="text-white nav-link" href="#" id="search" data-bs-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               <div class="text-center">
                 <div><i class="fas fa-search fa-lg"></i></div>
@@ -61,8 +63,9 @@
               </div>
             </a>
             <div class="dropdown-menu border-0 w-100 p-md-4 rounded-0 my-md-3  bg-dark" aria-labelledby="search">
-              <form class="form" method="GET" action="{% url 'items' %}">
+              <form class="form" method="GET" action="{% url 'items' %}" aria-label="Search form">
                 <div class="input-group w-100">
+                  <label class="sr-only">Search our site</label>
                   <input class="form-control border border-white rounded-0" type="text" name="q"
                     placeholder="Search...">
                   <div class="input-group-append bg-white">
@@ -115,6 +118,7 @@
         </ul>
       </div>
     </div>
+    <!-- Navigation -->
     <div class="row bg-dark">
       <hr class="d-none d-md-block text-white p-1 mb-0 mx-auto">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -130,6 +134,7 @@
     </div>
   </header>
 
+  <!-- Messages -->
   {% if messages %}
   <div class="message-container">
     {% for message in messages %}

@@ -1,7 +1,7 @@
 <div class="d-flex flex-grow-1 align-items-center d-md-none">
   <div class="d-flex flex-grow-1 justify-content-center m-0">
     <a href=" {% url 'home' %}" class="d-flex align-items-center nav-link logo-link">
-      <img src="{{ MEDIA_URL }}/logo-img.png" id="logo-img" class="px-1" alt="Devil on Pans logo">
+      <img src="{{ MEDIA_URL }}logo-img.png" id="logo-img-sm" class="px-1" alt="Devil on Pans logo">
     </a>
   </div>
   <ul class="d-flex list-unstyled justify-content-end m-0 d-md-none">
@@ -13,9 +13,10 @@
           <p class="my-0 d-none d-sm-block">Search</p>
         </div>
       </a>
-      <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0  bg-dark" aria-labelledby="search">
+      <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0  bg-dark" aria-labelledby="mobile-search">
         <form class="form" method="GET" action="{% url 'items' %}">
           <div class="input-group w-100">
+            <label class="sr-only">Search our site</label>
             <input class="form-control border border-white rounded-0" type="text" name="q" placeholder="Search...">
             <div class="input-group-append bg-white">
               <button class="form-control btn btn-white border border-white rounded-0" type="submit">
@@ -58,7 +59,7 @@
             {% if grand_total %}
             ${{ grand_total|floatformat:2 }}
             {% else %}
-            $0.00
+            €0.00
             {% endif %}
           </p>
         </div>

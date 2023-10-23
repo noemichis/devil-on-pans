@@ -22,8 +22,7 @@
         <a href="{% url 'items' %}?category={{ category.name }}" class="dropdown-item">{{ category.friendly_name }}</a>
         {% endfor %}
         {% endif %}
-        <a href="{% url 'items' %}" class="dropdown-item">Show all
-          items</a>
+        <a href="{% url 'items' %}" class="dropdown-item">Show all items</a>
       </div>
     </li>
     <li class="nav-item dropdown">

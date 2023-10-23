@@ -36,7 +36,7 @@ a:hover {
   font-family: 'Niramit', sans-serif;
 }
 
-#logo-img {
+#logo-img-sm {
   width: 120px;
   height: auto;
 }
@@ -56,7 +56,7 @@ a:hover {
 }
 
 .header-container {
-  padding-top: 128px;
+  padding-top: 146px;
 }
 
 .btn {
@@ -99,7 +99,7 @@ a:hover {
 }
 
 input[name="quantity"] {
-  width: 50px !important;
+  width: 75px !important;
   flex: none !important;
 }
 
@@ -138,9 +138,6 @@ input[name="quantity"] {
     height: auto;
   }
 
-  .header-container {
-    padding-top: 183px;
-  }
 
   #index-title {
     font-size: calc(2.5rem + 1.5vw)

@@ -1,20 +1,27 @@
 <footer class="container-fluid bg-dark text-white">
-  <div class="row text-center">
+  <div class="row pt-2 mb-2 text-center">
     <div class="col">
       <!-- Footer Nav Menu -->
-      <p><a class="text-white" href="#">Welcome</a></p>
-      <p><a class="text-white" href="#">Local Catering</a></p>
-      <p><a class="text-white" href="#">Chef Hire</a></p>
-      <p><a class="text-white" href="#">About Us</a></p>
+      <p class="p-1"><a class="text-white" href="#">Welcome</a></p>
+      <p class="p-1"><a class="text-white" href="{% url 'items' %}">Local Catering</a></p>
+      <p class="p-1"><a class="text-white" href="#">Chef Hire</a></p>
+      <p class="p-1"><a class="text-white" href="#">About Us</a></p>
     </div>
     <div class="col">
       <!-- Social links -->
-      <a class="text-white" href="#"><i class="fab fa-facebook"></i></a>
+      <a class="text-white p-2" href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook fa-lg p-2"></i>
+      </a>
+      <a class="text-white p-2" href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram fa-lg p-2"></i>
+      </a>
+      <a class="text-white p-2" href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter fa-lg p-2"></i>
+      </a>
     </div>
     <div class="col">
       <!-- Links and other info -->
-      <p>&copy; Noemi Chis-Hunyadi 2023</p>
+      <p class="p-1">&copy; Noemi Chis-Hunyadi 2023</p>
     </div>
-  </div>
   </div>
 </footer>
