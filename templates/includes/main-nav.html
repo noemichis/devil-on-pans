@@ -1,4 +1,4 @@
-<div class="collapse navbar-collapse pb-2" id="main-nav">
+<div class="collapse navbar-collapse ps-2 pb-2" id="main-nav">
   <ul class="navbar-nav w-auto mx-auto">
     <li class="nav-item">
       <a class="font-weight-bold nav-link text-white mr-5" href="{% url 'home' %}" id="welcome-link">
@@ -15,11 +15,12 @@
         aria-haspopup="true" aria-expanded="false">
         Local Catering
       </a>
-      <div class="dropdown-menu border-0" aria-labelledby="local-catering-link">
+      <div class="dropdown-menu dropdown-menu-dark text-white border-1 rounded-0" aria-labelledby="local-catering-link">
         {% if categories %}
         {% for category in categories %}
         <a href="{% url 'items' %}?category={{ category.name }}" class="dropdown-item">{{ category.friendly_name }}</a>
         {% endfor %}
+        <hr class="w-100 dropdown-divider">
         {% endif %}
         <a href="{% url 'items' %}" class="dropdown-item">Show all items</a>
       </div>
@@ -29,7 +30,7 @@
         aria-haspopup="true" aria-expanded="false">
         Chef Hire
       </a>
-      <div class="dropdown-menu border-0" aria-labelledby="chef-hire-link">
+      <div class="dropdown-menu dropdown-menu-dark text-white border-1 rounded-0" aria-labelledby="chef-hire-link">
         <a href="#" class="dropdown-item oos-nohover">Comming soon</a>
       </div>
     </li>
@@ -39,8 +40,9 @@
         aria-haspopup="true" aria-expanded="false">
         About Us
       </a>
-      <div class="dropdown-menu border-0" aria-labelledby="about-link">
+      <div class="dropdown-menu dropdown-menu-dark text-white border-1 rounded-0" aria-labelledby="about-link">
         <a href="#" class="dropdown-item oos-nohover">Coming soon</a>
+      </div>
     </li>
   </ul>
 </div>

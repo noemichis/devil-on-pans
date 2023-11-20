@@ -36,6 +36,10 @@ a:hover {
   font-family: 'Niramit', sans-serif;
 }
 
+#logo-img {
+  width: 175px;
+}
+
 #logo-img-sm {
   width: 120px;
   height: auto;
@@ -140,10 +144,21 @@ input[name="quantity"] {
 
 /*  Media Queries */
 
+/* Extra small screen padding  */
+@media (max-width: 400px) {
+  nav {
+    padding: 0.25rem !important;
+  }
+
+  a {
+    padding: 0.5rem !important;
+  }
+}
+
 /* Navbar logo required size increase on 400px up screens  */
-@media (min-width: 400px) {
-  #logo-img {
-    width: 175px;
+@media (min-width: 430px) {
+  #logo-img-sm {
+    width: 150px;
     height: auto;
   }
 
