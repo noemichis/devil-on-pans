@@ -15,7 +15,7 @@
   <div class="row mb-1">
     <div class="col-12 my-1 text-dark text-center">
       <h1 class="logo-font p-2 mt-0"><strong>Local catering</strong></h1>
-      <hr class="p-1 mb-0 mx-auto">
+      <hr class="mb-0 mx-auto">
       {% for category in current_categories %}
       <a class="logo-font text-decoration-none" href="{% url 'items' %}?category={{ category.name }}">
         <h3 class="p-2 mt-1 text-dark">{{ category.friendly_name }}</h3>

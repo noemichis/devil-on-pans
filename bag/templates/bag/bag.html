@@ -18,7 +18,7 @@
       <h1 class="logo-font p-2 mt-0"><strong>Shopping Bag</strong></h1>
     </div>
   </div>
-  <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+  <hr class="text-dark my-1 mx-auto">
   {% if bag_items %}
   <div class="row bag-item-container mx-auto p-2">
     <div class="col-12 my-1 mx-auto text-dark text-center">
@@ -69,10 +69,12 @@
           </div>
         </div>
       </div>
-      <hr class="mx-auto text-dark">
+      {% if not forloop.last %}
+      <hr class="mx-auto text-dark my-1">
+      {% endif %}
       {% endfor %}
     </div>
-    <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+    <hr class="w-100 text-dark my-1 mx-auto">
   </div>
   <div class="row bag-item-container mx-auto p-2">
     <div class="col-12 my-1 mx-auto text-dark text-end">
@@ -80,12 +82,12 @@
         <h6><strong>Order Total:</strong></h6>
         <h6><strong>€{{ total|floatformat:2 }}</strong></h6>
       </div>
-      <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+      <hr class="w-100 text-dark my-1 mx-auto">
       <div class="d-flex justify-content-between">
         <h6>Delivery:</h6>
         <h6>€{{ delivery|floatformat:2 }}</h6>
       </div>
-      <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+      <hr class="w-100 text-dark my-1 mx-auto">
       <div class="d-flex justify-content-between">
         <h4 class="mt-4"><strong>Grand Total:</strong></h4>
         <h4 class="mt-4"><strong> €{{ grand_total|floatformat:2 }}</strong></h4>
@@ -98,11 +100,11 @@
     </div>
   </div>
   {% else %}
-  <p class="lead mb-5 text-center">There is nothing in your bag yet.</p>
+  <p class="lead my-5 text-center">There is nothing in your bag yet.</p>
   {% endif %}
   <div class="row bag-item-container mx-auto p-2 my-3">
     <div class="d-flex flex-wrap align-items-center justify-content-center">
-      <a href="{% url 'items' %}" class="btn btn-dark no-space btn-lg rounded-0 py-2 py-md-3 my-2 me-2">
+      <a href="{% url 'items' %}" class="btn btn-dark no-space btn-lg rounded-0 py-2 py-md-3 me-2">
         <span class="icon">
           <i class="fas fa-chevron-left"></i>
         </span>
@@ -123,7 +125,7 @@
 {{ block.super }}
 {% include 'items/includes/quantity_input_script.html' %}
 
-<script type="text/javascript">
+<script>
   // Update quantity on click
   $('.update-link').click(function (e) {
     var form = $(this).prev('.update-form');

@@ -21,10 +21,10 @@
       <h1 class="logo-font p-2 mt-0"><strong>Checkout</strong></h1>
     </div>
   </div>
-  <hr class="w-100 text-dark p-1 mb-0 mx-auto">
-  <div class="row px-2 mx-auto">
+  <hr class="text-dark my-1 mx-auto">
+  <div class="row p-2 mx-auto">
     <div class="col-12 col-lg-6 my-1 mx-auto text-dark text-center order-lg-2">
-      <p class="text-muted">Order Summary ({{ item_count }})</p>
+      <p class="text-muted p-2 mt-2">Order Summary ({{ item_count }})</p>
       {% for item in bag_items %}
       <div class="row px-lg-5 mx-auto align-items-center">
         <div class="col mb-1">
@@ -42,7 +42,7 @@
           <p class="my-0 small text-muted text-end">${{ item.item.price | calc_subtotal:item.quantity }}</p>
         </div>
       </div>
-      <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+      <hr class="w-100 text-dark my-1 mx-auto">
 
       {% endfor %}
       <div class="row px-lg-5 mx-auto justify-content-between text-black text-right">
@@ -57,7 +57,7 @@
           <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
         </div>
       </div>
-      <hr class="w-100 text-dark p-1 mb-0 mx-auto">
+      <hr class="w-100 text-dark my-1 mx-auto">
     </div>
     <div class="col-12 col-lg-6 my-1 mx-auto text-dark text-center order-lg-1">
       <p class="text-muted text-center p-2 mt-2">Please fill out the form below to complete your order</p>
@@ -100,14 +100,14 @@
         </fieldset>
 
         <div class="submit-button mt-5 mb-2 text-center">
-          <a href="{% url 'view_bag' %}" class="btn btn-dark rounded-0">
+          <a href="{% url 'view_bag' %}" class="btn btn-dark btn-lg no-space rounded-0 py-2 py-md-3 me-2 my-1">
             <span class="icon">
               <i class="fas fa-chevron-left"></i>
             </span>
-            <span class="font-weight-bold">Adjust Bag</span>
+            <span class="text-uppercase">Adjust Bag</span>
           </a>
-          <button id="submit-button" class="btn btn-dark rounded-0">
-            <span class="font-weight-bold">Complete Order</span>
+          <button id="submit-button" class="btn btn-dark btn-lg no-space rounded-0 py-2 py-md-3 my-1">
+            <span class="text-uppercase">Complete Order</span>
             <span class="icon">
               <i class="fas fa-lock"></i>
             </span>
