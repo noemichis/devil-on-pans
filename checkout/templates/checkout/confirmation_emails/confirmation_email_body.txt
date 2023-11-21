@@ -1,0 +1,14 @@
+Hi {{ order.full_name }},
+
+Thank you for your Devil On Pans order, this is now confirmed.
+
+Order number: {{ order.order_number }}
+
+The delivery address we have on record is: {{ order.street_address1 }}, {{ order.town_or_city}}, {{ order.county }}, {{ order.postcode }}.
+
+For any questions please feel free to contact us on {{ contact_email }} or on our website: 
+https://devil-on-pans-8a8a58db0f75.herokuapp.com/
+
+Thank you for supporting our small business,
+
+Devil On Pans Team
