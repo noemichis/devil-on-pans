@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -77,8 +78,13 @@ def item_detail(request, item_id):
 
     return render(request, 'items/item_detail.html', context)
 
+
+@login_required
 def add_item(request):
     """ Add an item to the site """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES)
@@ -99,10 +105,11 @@ def add_item(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_item(request, item_id):
     """ Edit an item on the site """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+        messages.error(request, 'Sorry, only site owners can do that.')
         return redirect(reverse('home'))
 
     item = get_object_or_404(Item, pk=item_id)
@@ -127,10 +134,11 @@ def edit_item(request, item_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_item(request, item_id):
     """ Delete a item from the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+        messages.error(request, 'Sorry, only site owners can do that.')
         return redirect(reverse('home'))
 
     item = get_object_or_404(Item, pk=item_id)
