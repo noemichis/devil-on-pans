@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-white py-5 px-3 px-lg-5">
+    <div class="row p-2">
+        <div class="col-12 my-1 text-dark text-center">
+            <h1 class="logo-font p-2 mt-0"><strong>Product Management</strong></h1>
+            <hr class="text-dark my-1 mx-auto">
+            <h5 class="p-2 mt-1 text-dark"><strong>Edit an Item</strong></h5>
+        </div>
+    </div>
+    <div class="row p-2 mx-auto">
+        <div class="col-12 col-lg-6 my-1 mx-auto text-dark text-center order-lg-2">
+            <form method="POST" action="{% url 'edit_item' item.id %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
+                {% endfor %}
+                <div class="text-right">
+                    <a class="btn btn-dark no-space rounded-0 py-1 py-md-3 me-2 my-1"
+                        href="{% url 'items' %}">Cancel</a>
+                    <button class="btn btn-dark no-space rounded-0 py-1 py-md-3 me-2 my-1" type="submit">Update
+                        Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
