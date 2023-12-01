@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Item, Category
 
+from .models import Item, Category
+from .forms import ItemForm
 
 def all_items(request):
     """
@@ -75,3 +76,13 @@ def item_detail(request, item_id):
     }
 
     return render(request, 'items/item_detail.html', context)
+
+def add_item(request):
+    """ Add an item to the site """
+    form = ItemForm()
+    template = 'items/add_item.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
