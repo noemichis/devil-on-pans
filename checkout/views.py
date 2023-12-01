@@ -80,6 +80,11 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_bag'))
 
+            for item_id, quantity in bag.items():
+                item = Item.objects.get(id=item_id)
+                item.stock_nr -= quantity
+                item.save()
+
             # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
