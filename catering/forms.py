@@ -2,6 +2,7 @@ from django import forms
 from .widgets import CustomClearableFileInput
 from .models import Item, Category, Allergen
 
+
 # Custom form for Item model
 class ItemForm(forms.ModelForm):
 
@@ -9,8 +10,14 @@ class ItemForm(forms.ModelForm):
         model = Item
         fields = '__all__'
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-    allergens = forms.ModelMultipleChoiceField(queryset=Allergen.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
+    image = forms.ImageField(
+        label='Image', required=False, widget=CustomClearableFileInput
+        )
+    allergens = forms.ModelMultipleChoiceField(
+        queryset=Allergen.objects.all(),
+        required=False,
+        widget=forms.CheckboxSelectMultiple
+        )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -22,6 +29,7 @@ class ItemForm(forms.ModelForm):
             field.widget.attrs['class'] = 'border-black rounded-0'
 
 
+# Form for Allergen input
 class AllergenForm(forms.ModelForm):
 
     class Meta:

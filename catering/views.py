@@ -7,6 +7,7 @@ from django.db.models.functions import Lower
 from .models import Item, Category, Allergen
 from .forms import ItemForm, AllergenForm
 
+
 def all_items(request):
     """
     View that returns all the items
@@ -93,7 +94,10 @@ def add_item(request):
             messages.success(request, 'Successfully added item!')
             return redirect(reverse('item_detail', args=[item.id]))
         else:
-            messages.error(request, 'Failed to add item. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add item. Please ensure the form is valid.'
+                )
     else:
         form = ItemForm()
 
@@ -120,7 +124,10 @@ def edit_item(request, item_id):
             messages.success(request, 'Successfully updated item!')
             return redirect(reverse('item_detail', args=[item.id]))
         else:
-            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to update item. Please ensure the form is valid.'
+                )
     else:
         form = ItemForm(instance=item)
         messages.info(request, f'You are editing {item.name}')
@@ -136,7 +143,7 @@ def edit_item(request, item_id):
 
 @login_required
 def delete_item(request, item_id):
-    """ Delete a item from the store """
+    """ Delete an item from the site"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site owners can do that.')
         return redirect(reverse('home'))
@@ -149,6 +156,7 @@ def delete_item(request, item_id):
 
 @login_required
 def create_allergen(request):
+    """ Create an allergen from the site"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site owners can do that.')
         return redirect(reverse('home'))
@@ -160,7 +168,10 @@ def create_allergen(request):
             messages.success(request, 'Successfully added allergen!')
             allergen_form.save()
         else:
-            messages.error(request, 'Failed to add allergen. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add allergen. Please ensure the form is valid.'
+                )
     else:
         allergen_form = AllergenForm()
 
@@ -172,9 +183,10 @@ def create_allergen(request):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_allergen(request, allergen_id):
-    """ Delete a item from the store """
+    """ Delete an allergen from the site"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site owners can do that.')
         return redirect(reverse('home'))
