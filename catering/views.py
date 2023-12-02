@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Item, Category
-from .forms import ItemForm
+from .models import Item, Category, Allergen
+from .forms import ItemForm, AllergenForm
 
 def all_items(request):
     """
@@ -145,3 +145,41 @@ def delete_item(request, item_id):
     item.delete()
     messages.success(request, 'Item deleted!')
     return redirect(reverse('items'))
+
+
+@login_required
+def create_allergen(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse('home'))
+
+    allergens = Allergen.objects.all()
+    if request.method == 'POST':
+        allergen_form = AllergenForm(request.POST, request.FILES)
+        if allergen_form.is_valid():
+            messages.success(request, 'Successfully added allergen!')
+            allergen_form.save()
+        else:
+            messages.error(request, 'Failed to add allergen. Please ensure the form is valid.')
+    else:
+        allergen_form = AllergenForm()
+
+    template = 'items/create_allergen.html'
+    context = {
+        'allergens': allergens,
+        'allergen_form': allergen_form,
+    }
+
+    return render(request, template, context)
+
+@login_required
+def delete_allergen(request, allergen_id):
+    """ Delete a item from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse('home'))
+
+    allergen = get_object_or_404(Allergen, pk=allergen_id)
+    allergen.delete()
+    messages.success(request, 'Allergen deleted!')
+    return redirect(reverse('create_allergen'))
