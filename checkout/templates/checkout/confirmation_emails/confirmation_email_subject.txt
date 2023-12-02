@@ -1,0 +1,1 @@
+Devil On Pans Order # {{ order.order_number }} confirmed

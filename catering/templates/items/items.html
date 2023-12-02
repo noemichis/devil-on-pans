@@ -88,6 +88,12 @@
             {% else %}
             <div class="btn btn-light mb-0 py-2 w-100 rounded-0 oos-nohover"><strong>Out of Stock</strong></div>
             {% endif %}
+            {% if request.user.is_superuser %}
+            <small class="ml-3">
+              <a href="{% url 'edit_item' item.id %}"><strong>Edit</strong></a> |
+              <a class="text-danger" href="{% url 'delete_item' item.id %}"><strong>Delete</strong></a>
+            </small>
+            {% endif %}
           </div>
         </div>
       </div>
