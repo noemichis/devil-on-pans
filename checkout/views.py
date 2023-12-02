@@ -83,6 +83,8 @@ def checkout(request):
             for item_id, quantity in bag.items():
                 item = Item.objects.get(id=item_id)
                 item.stock_nr -= quantity
+                if item.stock_nr == 0:
+                    item.in_stock = False
                 item.save()
 
             # Save the info to the user's profile if all is well
