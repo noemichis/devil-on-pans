@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-white py-5">
+    <div class="row mb-1">
+        <div class="col-12 my-1 text-dark text-center">
+            <h1 class="logo-font p-2 mt-0"><strong>Hire Request</strong></h1>
+            <hr class="mb-0 mx-auto">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 my-1 mx-auto text-dark text-center order-lg-2">
+            <form class="mt-3" action="{% url 'hire_request' hire_package.id  %}" method="POST" id="hire-request-form">
+                {% csrf_token %}
+                {{ hire_form|crispy }}
+                <button class="btn btn-dark btn-lg no-space rounded-0 py-1 py-md-3 my-1">Send request</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
