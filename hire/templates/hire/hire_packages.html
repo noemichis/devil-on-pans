@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-white py-5">
+    <div class="row mb-1">
+        <div class="col-12 my-1 text-dark text-center">
+            <h1 class="logo-font p-2 mt-0"><strong>Hire Packages</strong></h1>
+            <hr class="mb-0 mx-auto">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="row">
+            {% if hire_packages %}
+            {% for package in hire_packages %}
+            <div class="col-12 col-sm-10 col-md-8 col-lg-4 mx-auto my-3">
+                <div class="card h-100 rounded-0 border-0 bg-dark text-white p-3 mb-3">
+                    <h5 class="card-title">{{ package.package_name }}</h5>
+                    {% if hire_packages.image %}
+                    <img class="card-img-top rounded-0 border border-5 border-dark" src="{{ package.image.url }}"
+                        alt="{{ package.package_name }}">
+                    {% else %}
+                    <img class="card-img-top rounded-0 border border-5 border-dark" src="{{ MEDIA_URL }}noimage.png"
+                        alt="{{ package.package_name }}">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column mb-0 pb-1">
+                        <p class="card-text fst-italic">{{ package.description }}...</p>
+                        <p class="card-text fst-italic">{{ package.serves_nr_guests }}...</p>
+                        <h5 class="mb-1 mt-auto">€{{ package.price }}</h5>
+                    </div>
+                    <div class="card-footer border-0 mb-2">
+                        <a href="#" class="btn btn-light py-2 w-100 rounded-0"><strong>Hire package</strong></a>
+                        {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="#"><strong>Edit</strong></a> |
+                            <a class="text-danger" href="#"><strong>Delete</strong></a>
+                        </small>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:1 %}
+            <div class="col-12 d-md-none">
+                <hr class="mx-auto text-dark">
+            </div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:2 %}
+            <div class="col-12 d-none d-sm-block d-md-block d-lg-none">
+                <hr class="mx-auto text-dark">
+            </div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:3 %}
+            <div class="col-12 d-none d-lg-block d-xl-none">
+                <hr class="mx-auto text-dark">
+            </div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:4 %}
+            <div class="col-12 d-none d-xl-block">
+                <hr class="mx-auto text-dark">
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+<!-- Sort selector script  -->
+<script>
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
+
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+        }
+    });
+</script>
+{% endblock %}

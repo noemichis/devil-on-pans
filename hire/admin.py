@@ -11,8 +11,8 @@ class HirePackageAdmin(admin.ModelAdmin):
         'description',
     )
 
-    ordering = ('package_name')
+    ordering = ('package_name',)
 
     search_fields = ('package_name', 'price', 'serves_nr_guests', 'description')
 
-admin.site.register(HirePackage)
+admin.site.register(HirePackage, HirePackageAdmin)
