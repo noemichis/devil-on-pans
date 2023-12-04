@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
-from .models import HirePackage
+from .models import HirePackage, HireRequest
 from .forms import HireForm
 
 from profiles.models import UserProfile
@@ -20,6 +21,7 @@ def get_packages(request):
 
     return render(request, template, context)
 
+
 def create_hire_request(request, hire_package_id):
     """
     View that handles the hire request
@@ -36,7 +38,8 @@ def create_hire_request(request, hire_package_id):
             hire_request.hire_package = hire_package
             hire_request.save()
             messages.success(request, 'Successfully Sent request!')
-            return redirect('hire_packages')
+            template = 'hire/hire_success.html'
+            return render(request, template)
         else:
             messages.error(
                 request,
@@ -57,4 +60,19 @@ def create_hire_request(request, hire_package_id):
         'hire_form': hire_form,
         'hire_package': hire_package,
     }
+    return render(request, template, context)
+
+
+@login_required
+def hire_request_list(request):
+    """
+    View that returns all the package requests to admin
+    """
+    all_requests = HireRequest.objects.all()
+
+    template = 'hire/hire_request_list.html'
+    context = {
+        'hire_requests': all_requests,
+    }
+
     return render(request, template, context)
