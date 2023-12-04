@@ -8,11 +8,7 @@ class HireForm(forms.ModelForm):
     """ Form to send hire request info to database """
     class Meta:
         model = HireRequest
-        fields = (
-            'hire_package', 'name', 'email',
-            'date', 'time', 'nr_of_guests', 'allergies',
-            'comments',
-        )
+        exclude = ('replied',)
 
     allergies = forms.ModelMultipleChoiceField(
         queryset=Allergen.objects.all(),
@@ -42,5 +38,5 @@ class HireForm(forms.ModelForm):
         self.fields['date'] = forms.DateField(
             widget=forms.DateInput(attrs={'type': 'date', 'min': date.today()}))
         self.fields['time'] = forms.TimeField(
-            widget=forms.TimeInput(attrs={'type': 'time', 'step': 3600, 'min': '08:00', 'max': '20:00'}))
+            widget=forms.TimeInput(attrs={'type': 'time', 'min': '08:00', 'max': '20:00'}))
 
