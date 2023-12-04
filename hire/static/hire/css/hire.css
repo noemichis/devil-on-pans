@@ -1,0 +1,13 @@
+.checkbox-inline {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-check {
+  margin-right: 1rem;
+}
+
+.form-check-input:checked {
+  background-color: rgba(33, 37, 41, 0.5);
+  border-color: rgba(33, 37, 41, 0.5);
+}
