@@ -26,7 +26,7 @@ class HireRequestAdmin(admin.ModelAdmin):
         'comments',
     )
 
-    ordering = ('replied', 'hire_package',)
+    ordering = ('hire_package', 'replied')
 
 admin.site.register(HirePackage, HirePackageAdmin)
 admin.site.register(HireRequest, HireRequestAdmin)
