@@ -1,6 +1,7 @@
+from datetime import date
 from django import forms
-from .models import HireRequest
 from catering.models import Allergen
+from .models import HireRequest
 
 
 class HireForm(forms.ModelForm):
@@ -10,7 +11,7 @@ class HireForm(forms.ModelForm):
         fields = (
             'hire_package', 'name', 'email',
             'date', 'time', 'nr_of_guests', 'allergies',
-            'comments'
+            'comments',
         )
 
     allergies = forms.ModelMultipleChoiceField(
@@ -27,13 +28,19 @@ class HireForm(forms.ModelForm):
             'email': 'Email Address',
             'nr_of_guests': 'Number of guests expected',
             'comments': 'Add your enquiries here...',
+            'allergies': 'allergies',
         }
+
         for field in self.fields:
+            if field != 'allergies':
+                self.fields[field].label = False
             if field != 'date' and field != 'time' and field != 'allergies':
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+
+
         self.fields['date'] = forms.DateField(
-            widget=forms.DateInput(attrs={'type': 'date'}))
+            widget=forms.DateInput(attrs={'type': 'date', 'min': date.today()}))
         self.fields['time'] = forms.TimeField(
-            widget=forms.TimeInput(attrs={'type': 'time'}))
+            widget=forms.TimeInput(attrs={'type': 'time', 'step': 3600, 'min': '08:00', 'max': '20:00'}))
 

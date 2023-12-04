@@ -1,5 +1,7 @@
 from django.db import models
+from .tools import date_validation
 from catering.models import Allergen
+
 
 # Creates chef hire package
 class HirePackage(models.Model):
@@ -23,7 +25,7 @@ class HireRequest(models.Model):
     hire_package = models.ForeignKey(HirePackage, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(max_length=100, null=False, blank=False)
-    date = models.DateField()
+    date = models.DateField(validators=[date_validation])
     time = models.TimeField()
     nr_of_guests = models.IntegerField()
     allergies = models.ManyToManyField(Allergen, blank=True)
