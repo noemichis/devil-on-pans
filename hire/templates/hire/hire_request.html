@@ -38,10 +38,16 @@
                 {% endfor %}
                 <div class="">
                     <a href="{% url 'hire_packages' %}" class="btn btn-dark no-space rounded-0 py-1 py-md-3 my-1">
+                        <span>
+                            <i class="fas fa-window-close"></i>
+                        </span>
                         <span class="text-uppercase">Cancel</span>
                     </a>
-                    <button class="btn btn-dark no-space text-uppercase rounded-0 py-1 py-md-3 my-1">Send
-                        request</button>
+                    <button class="btn btn-dark no-space text-uppercase rounded-0 py-1 py-md-3 my-1">
+                        <span class="icon mr-2">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        Send request</button>
                 </div>
             </form>
         </div>
