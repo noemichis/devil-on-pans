@@ -34,7 +34,7 @@ def create_hire_request(request, hire_package_id):
         if hire_form.is_valid():
             hire_request = hire_form.save(commit=False)
             hire_request.hire_package = hire_package
-            hire_form.save()
+            hire_request.save()
             messages.success(request, 'Successfully Sent request!')
             return redirect('hire_packages')
         else:
@@ -44,14 +44,11 @@ def create_hire_request(request, hire_package_id):
                 )
     else:
         if request.user.is_authenticated:
-            try:
-                profile = UserProfile.objects.get(user=request.user)
-                hire_form = HireForm(initial={
-                    'email': profile.user.email,
-                    'hire_package': hire_package,
-                })
-            except UserProfile.DoesNotExist:
-                hire_form = HireForm(initial_package)
+            profile = UserProfile.objects.get(user=request.user)
+            hire_form = HireForm(initial={
+                'email': profile.user.email,
+                'hire_package': hire_package,
+            })
         else:
             hire_form = HireForm(initial_package)
 
