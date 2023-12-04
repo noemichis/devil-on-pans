@@ -13,20 +13,29 @@ class HirePackageAdmin(admin.ModelAdmin):
 
     ordering = ('package_name',)
 
-    search_fields = ('package_name', 'price', 'serves_nr_guests', 'description')
+    search_fields = (
+        'package_name',
+        'price',
+        'serves_nr_guests',
+        'description'
+    )
+
 
 class HireRequestAdmin(admin.ModelAdmin):
     list_display = (
-        'replied',
         'id',
-        'hire_package',
         'name',
-        'email',
+        'replied',
         'date',
+        'hire_package',
+        'email',
         'comments',
     )
 
-    ordering = ('hire_package', 'replied')
+    readonly_fields = ('allergies',)
+
+    ordering = ('replied', 'date', 'hire_package',)
+
 
 admin.site.register(HirePackage, HirePackageAdmin)
 admin.site.register(HireRequest, HireRequestAdmin)
