@@ -19,20 +19,18 @@ class HireForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         placeholders = {
-            'hire_package': 'Package name',
             'name': 'Full Name',
             'email': 'Email Address',
             'nr_of_guests': 'Number of guests expected',
             'comments': 'Add your enquiries here...',
-            'allergies': 'allergies',
         }
 
         for field in self.fields:
             if field != 'allergies':
                 self.fields[field].label = False
-            if field != 'date' and field != 'time' and field != 'allergies':
+            if field not in ['hire_package', 'date', 'time', 'allergies']:
                 placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
+                self.fields[field].widget.attrs['placeholder'] = placeholder
 
         self.fields['date'] = forms.DateField(
             widget=forms.DateInput(
