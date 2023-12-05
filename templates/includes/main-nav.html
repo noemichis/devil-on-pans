@@ -5,13 +5,18 @@
         Welcome
       </a>
     </li>
-    <li class="nav-item">
-      <a class="font-weight-bold nav-link text-white mr-5" href="{% url 'items' %}" id="all-items-link">
+    <li class="nav-item dropdown">
+      <a class="font-weight-bold nav-link text-white mr-5" id="all-items-link" data-bs-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
         All Items
       </a>
+      <div class="dropdown-menu dropdown-menu-dark text-white border-1 rounded-0" aria-labelledby="all-items-link">
+        <a href="{% url 'items' %}" class="dropdown-item">All Catering Items</a>
+        <a href="{% url 'hire_packages' %}" class="dropdown-item">All Hire Packages</a>
+      </div>
     </li>
     <li class="nav-item dropdown">
-      <a class="font-weight-bold nav-link text-white mr-5" href="#" id="local-catering-link" data-bs-toggle="dropdown"
+      <a class="font-weight-bold nav-link text-white mr-5" id="local-catering-link" data-bs-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         Local Catering
       </a>
@@ -26,18 +31,18 @@
       </div>
     </li>
     <li class="nav-item dropdown">
-      <a class="font-weight-bold nav-link text-white mr-5" href="#" id="chef-hire-link" data-bs-toggle="dropdown"
+      <a class="font-weight-bold nav-link text-white mr-5" id="chef-hire-link" data-bs-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         Chef Hire
       </a>
       <div class="dropdown-menu dropdown-menu-dark text-white border-1 rounded-0" aria-labelledby="chef-hire-link">
-        <a href="#" class="dropdown-item oos-nohover">Comming soon</a>
+        <a href="{% url 'hire_packages' %}" class="dropdown-item">Hire Packages</a>
       </div>
     </li>
 
     <li class="nav-item dropdown">
-      <a class="font-weight-bold nav-link text-white" href="#" id="about-link" data-bs-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
+      <a class="font-weight-bold nav-link text-white" id="about-link" data-bs-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
         About Us
       </a>
       <div class="dropdown-menu dropdown-menu-dark text-white border-1 rounded-0" aria-labelledby="about-link">
