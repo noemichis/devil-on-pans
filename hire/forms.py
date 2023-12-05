@@ -34,9 +34,9 @@ class HireForm(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
 
-
         self.fields['date'] = forms.DateField(
-            widget=forms.DateInput(attrs={'type': 'date', 'min': date.today()}))
+            widget=forms.DateInput(
+                attrs={'type': 'date', 'min': date.today()}))
         self.fields['time'] = forms.TimeField(
-            widget=forms.TimeInput(attrs={'type': 'time', 'min': '08:00', 'max': '20:00'}))
-
+            widget=forms.TimeInput(
+                attrs={'type': 'time', 'min': '08:00', 'max': '20:00'}))

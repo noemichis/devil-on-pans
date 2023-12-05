@@ -73,4 +73,3 @@ def remove_from_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
-
