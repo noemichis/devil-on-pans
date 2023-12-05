@@ -6,7 +6,7 @@
   </div>
   <ul class="d-flex list-unstyled justify-content-end m-0 d-md-none">
     <li class="d-flex p-md-4">
-      <a class="text-white nav-link" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true"
+      <a class="text-white nav-link" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         <div class="text-center">
           <div><i class="fas fa-search fa-lg"></i></div>
@@ -30,19 +30,25 @@
       </div>
     </li>
     <li class="dropdown p-md-4">
-      <a class="text-white nav-link d-md-none" href="#" id="user-options-mobile" data-bs-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
+      <a class="text-white nav-link d-md-none" id="user-options-mobile" data-bs-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
         <div class="text-center">
-          <div><i class="fas fa-user-circle fa-lg"></i></div>
+          <div><i class="fas fa-user-circle fa-lg"></i>
+          </div>
+          {% if request.user.is_authenticated %}
+          <p class="my-0 d-none d-sm-block text-uppercase"><strong>{{ user.username| slice:1 }}.</strong></p>
+          {% else %}
           <p class="my-0 d-none d-sm-block">My Account</p>
+          {% endif %}
         </div>
       </a>
       <div class="dropdown-menu border-0" aria-labelledby="user-options-mobile">
         {% if request.user.is_authenticated %}
         {% if request.user.is_superuser %}
         <a href="{% url 'add_item' %}" class="dropdown-item">Product Management</a>
+        <a href="{% url 'hire_request_list' %}" class="dropdown-item">Hire Requests</a>
         {% endif %}
-        <a href="#" class="dropdown-item">My Profile</a>
+        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
         {% else %}
         <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>

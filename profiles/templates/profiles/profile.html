@@ -27,7 +27,8 @@
             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn btn-dark btn-lg no-space rounded-0 py-1 py-md-3 my-1">Update Information</button>
+                <button class="btn btn-dark text-uppercase no-space rounded-0 py-1 py-md-3 my-1">Update
+                    Information</button>
             </form>
         </div>
         <div class="col-12 col-lg-6 my-1 mx-auto text-dark text-center order-lg-2">
@@ -72,7 +73,7 @@
 
 {% endblock %}
 
-{% block postloadjs %}
+{% block postload_js %}
 {{ block.super }}
 <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

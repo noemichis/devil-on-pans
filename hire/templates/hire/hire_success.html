@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'hire/css/hire.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-white py-5 px-3 px-lg-5">
+    <div class="row p-2">
+        <div class="col-12 my-1 text-dark text-center">
+            <h1 class="logo-font p-2 mt-0"><strong>Thank you!</strong></h1>
+            <hr class="text-dark my-1 mx-auto">
+            <p class="lead my-4">We received your request and will be in touch with you shortly!</p>
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col-12 my-1 text-dark text-center">
+            <a href="{% url 'hire_packages' %}" class="btn btn-dark no-space rounded-0 py-1 py-md-3 my-1">
+                <span class="icon mr-2">
+                    <i class="fas fa-angle-left"></i>
+                </span>
+                <span class="text-uppercase">Back to Hire</span>
+            </a>
+            <a href="{% url 'home' %}" class="btn btn-dark no-space rounded-0 py-1 py-md-3 my-1">
+                <span class="icon mr-2">
+                    <i class="fas fa-home"></i>
+                </span>
+                <span class="text-uppercase">Home Page</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

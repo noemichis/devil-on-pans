@@ -85,17 +85,22 @@
             </div>
           </li>
           <li class="dropdown p-3">
-            <a class="text-white nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
+            <a class="text-white nav-link" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               <div class="text-center">
                 <div><i class="fas fa-user-circle fa-lg"></i></div>
+                {% if request.user.is_authenticated %}
+                <p class="my-2 d-none d-md-block text-uppercase"><strong>{{ user.username }}</strong></p>
+                {% else %}
                 <p class="my-2 d-none d-sm-block">My Account</p>
+                {% endif %}
               </div>
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
               <a href="{% url 'add_item' %}" class="dropdown-item">Product Management</a>
+              <a href="{% url 'hire_request_list' %}" class="dropdown-item">Hire Requests</a>
               {% endif %}
               <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
               <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
