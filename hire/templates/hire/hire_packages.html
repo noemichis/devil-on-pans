@@ -34,19 +34,13 @@
                     {% endif %}
                     <div class="card-body d-flex flex-column mb-0 pb-1">
                         <p class="card-text fst-italic">{{ package.description }}...</p>
-                        <p class="card-text fst-italic">{{ package.serves_nr_guests }}...</p>
-                        <h5 class="mb-1 mt-auto">€{{ package.price }}</h5>
+                        <p class="card-text">Appx. guest number: {{ package.serves_nr_guests }}</p>
+                        <h5 class="mb-1 mt-auto">Price/person: €{{ package.price }}</h5>
                     </div>
                     <div class="card-footer border-0 mb-2">
                         <a href="{% url 'hire_request' package.id  %}"
                             class="btn btn-light py-2 w-100 rounded-0"><strong>Hire
                                 Request</strong></a>
-                        {% if request.user.is_superuser %}
-                        <small class="ml-3">
-                            <a href="#"><strong>Edit</strong></a> |
-                            <a class="text-danger" href="#"><strong>Delete</strong></a>
-                        </small>
-                        {% endif %}
                     </div>
                 </div>
             </div>
