@@ -311,13 +311,36 @@ Tested with [CI Python Linter](https://pep8ci.herokuapp.com/)
 |Profile|Order history detail with back to profile|Pass|
 
 
+## Lighthouse performance
+
+Lighthouse report for desktop
+
+![Lighthouse desktop](assets/testing/lighthouse.png)
+![Lighthouse mobile](assets/testing/lighthouse-mobile.png)
 
 ## BUGS 
 
-Several Bugs appeared at deployment to Heroku on various occasions, all seemed to be production and server issues related to python version and django. They have been documented in the Agile board on the go. 
+Several Bugs appeared at deployment to Heroku on various occasions, all seemed to be production and server issues related to python version and django. They have been documented in the Agile board on the go:
 
-- Remove button from bag does not display toast message after deployment
+|Bug|Description|Result|
+|:---:|:---:|:---:|
+|[1](https://github.com/noemichis/devil-on-pans/issues/63)|Shopping basket quantity update not correct|Fixed|
+|[2](https://github.com/noemichis/devil-on-pans/issues/64)|Stock number not updated|Fixed|
+|[3](https://github.com/noemichis/devil-on-pans/issues/71)|Deployment to Heroku fail|Fixed|
+|[4](https://github.com/noemichis/devil-on-pans/issues/76)|Deployment Bug|Fixed|
+|[5](https://github.com/noemichis/devil-on-pans/issues/86)|Address validation errors|Fixed|
+|[6](https://github.com/noemichis/devil-on-pans/issues/84)|Resolve authentication issues|Fixed|
+|[7](https://github.com/noemichis/devil-on-pans/issues/83)|Resolve email confirmation|Fixed|
+|[8](https://github.com/noemichis/devil-on-pans/issues/85)|Webhook delivery issue|Not fixed|
 
-- Stripe payment intent is not a success after deployment, due to short time remaining will have to come back to it.
+- Biggest issue I encountered was Stripe webhooks which unfortunately until current day haven't been resolved. Decided to remove the webhooks from the code until a solution comes in the future. The payment in stripe seems successful as well as the data is registered in the database and email confirmation is sent.
+        - Possibly the most time spent on one problem are the webhooks. Over multiple days different approaches were considered, Stack Overflow, Stripe Documentation and previous threads from Slack. 
+        - Last error shown before removal is TLS related.
+    ![TLS error](assets/testing/webhook-errors.png)
 
+        - Payment succeeded with no webhook
+    ![Payment intent OK](assets/testing/payment-intent.png)
 
+    - Due to this issue emails were also not sending. This was resolved by moving the send email function
+
+- Other small bugs along the way also popped up that could be resolved with DEBUG=True, dev tools and console logs. 
