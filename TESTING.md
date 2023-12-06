@@ -1,13 +1,14 @@
 Back to [README.md](README.md)
 
 - [Testing](#testing)
-    - [Feature testing](#feature-testing)
-    - [Lighthouse performance](#lighthouse-performance)
     - [Code validation](#code-validation)
         - [HTML](#html)
         - [CSS](#css)
-        - [JavaScript](#javascript)
-        - [CI Python Linter](#ci-python-linter)
+        - [JavaScript](#java-script-elements)
+        - [Python Code](#python-code)
+    - [User story testing](#user-story-testing)
+    - [Feature testing](#feature-testing)
+    - [Lighthouse performance](#lighthouse-performance)
 
 - [Bugs](#bugs)
 
