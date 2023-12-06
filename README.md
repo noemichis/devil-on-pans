@@ -332,7 +332,6 @@ Next step would be to add some extra features to the hire app to facilitate the 
 - [W3C Markup validation Service](https://validator.w3.org/) - validate HTML
 - [The W3C CSS Validation Service](https://jigsaw.w3.org/) - validate CSS
 - [JSHint](https://jshint.com/) - validate jQuery
-- [Am I Responsive](https://ui.dev/) - test responsiveness on different devices
 - [CI Python Linter](https://pep8ci.herokuapp.com/) - validate python code
 - [Code Spell Checker](https://open-vsx.org/extension/streetsidesoftware/code-spell-checker) - VS Code extension 
 - [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - VS Code extension
@@ -395,6 +394,7 @@ A forked version of the project will appear in your repository
 - [django-allauth](https://django-allauth.readthedocs.io/en/latest/#)
 - [Stack Overflow](https://stackoverflow.com/) - used a lot during deployment issues to read what others suggest
 
+
 ### CONTENT
 
 - The images are sourced from [Unsplash](https://unsplash.com/)
@@ -402,6 +402,9 @@ A forked version of the project will appear in your repository
 
 ## ACKNOWLEDGEMENTS
 
-- I am greatly thankful to my partner. His support was just unmatched over the past year and helped me stay motivated until the end, regardless the recent difficulties.
+- I am greatly thankful to my partner. His support was just unmatched over the past year, taking care of housework and food over the past few months to allow me more time to work on this course. Regardless the recent difficulties and busy work, he was there and cheered for my success, could never say thank you enough.
+Sadly the end result is not what I would've wanted to achieve, but I know that with time and more practice this will also come. 
 
-- All the resources Code Institute has offered us and the Slack community. 
+- My little sister, who is always there and understands how busy life can get. Thank you!
+
+- All the resources Code Institute has offered us and the Slack community, who is just great. Most issues have the answer just there in the threads.  
