@@ -1,6 +1,6 @@
 # DEVIL ON PANS
 
-[amiresponsive](https://ui.dev/amiresponsive)
+![devil on pans ](assets/readme/first.png)
 
 [live link](https://devil-on-pans-8a8a58db0f75.herokuapp.com)
 
@@ -9,10 +9,11 @@
 - [User Experience](#user-experience)
     - [User Stories](#user-stories)
 
+- [Business model](#business-model)
+    - [Facebook marketing](#facebook-marketing)
+
 - [Design](#design)
     - [Colors](#colors)
-    - [Typography](#typograpy)
-    - [Wireframes](#wireframes)
 
 - [Agile](#agile)
 
@@ -21,13 +22,13 @@
 - [Technologies](#technologies)
     - [Languages](#languages)
     - [Django packages](#django-packages)
-    - [Frameworks - Libraries - Programs](#frameworks---libraries---proograms)
+    - [Frameworks - Libraries - Programs](#frameworks---libraries---programs)
 
 - [Testing](#testing)
 
 - [Deployment](#deployment)
-    - [Create Django Project](#create-django-project)
-    - [Deploy to Heroku](#deploy-to-heroku)
+    - [Preparation](#preparation)
+    - [Deploy to Heroku](#heroku-deployment)
     - [How to Fork](#how-to-fork)
     - [How to Clone](#how-to-clone)
 
@@ -35,15 +36,24 @@
     - [Code](#code)
     - [Content](#content)
 
-- [Acknowledgements]
+- [Acknowledgements](#acknowledgements)
 
 ## PROJECT OVERVIEW 
 
 The Devil On Pans idea was born a good while ago as myself and my partner found passion for food. The goal is to create an online presence for the chef and the team. On the website users can purchase delicasies, pre-order for events or hire a chef for private events. The project is realized with Django. 
 
+Website payments and deliveries are not yet processed. Mock purchase is advised using following details:
+
+- Card Number: 4242424242424242
+- Exp Date: Any (future) date using the format MM/YY
+- CVC = any 3 number
+- Postcode = any 5 number
+
 ## USER EXPERIENCE
 
 ### USER STORIES
+
+There are many user stories that have been created in Github issues, then moved into the project board and tracked/developed using agile methodology. 
 
 |ID|User Stories|
 |--|:---|
@@ -77,13 +87,23 @@ The site uses a simple mail signup subscription form to attract more customers.
 
 The E-commerce store will be useful to the business owner to publish and sell new dishes and grow in popularity as well. The payment system is easy and straight forward, lifting overhead and the site also gives the ability to the user to manage the site. 
 
+### Facebook Marketing
+
+A Facebook page was created and connected to the site, via which is expected to grow the target clientele and let the business introduce itself more. As it is a mockup There is no guarantee that the facebook page will still exist. Screenshots below to show:
+
+<details><summary>Facebook screenshots</summary>
+
+![Facebook](assets/readme/facebook.png)
+![Facebook-scroll](assets/readme/facebook-2.png)
+
+</details>
+
 ## DESIGN
 
 ### COLORS
 
 For the color and style scheme Bootstrap5 CSS classes are used and are mainly based on the Boutique Ado walkthrough project. We found that the dark theme works well with the white and keeps the site visually pleasant. For the buttons and other elements the same dark theme is used, with different letter spacing depending on the size of the button.
 
-### DATABASE
 
 ### AGILE
 
@@ -109,6 +129,15 @@ For the color and style scheme Bootstrap5 CSS classes are used and are mainly ba
 
 Additional issues and tasks were planned, unfortunately due to unexpected setbacks and running out of time, these won't be implemented on at this time.
 
+#### ** edit ** 
+
+A second iteration was allocated from a slightly different approach into implementing the final MVP.
+Lots of testing was done in the final development, most issues have been tackled and functionality achieved with minor bugs.
+
+|Iteration|Description|Comment|
+|:--|:--|:--|
+|Resubmission|Fix existing issues/Hire app/Product Admin/Final touches| Done
+
 [Github Project Board](https://github.com/users/noemichis/projects/7)
 
 [Github issues](https://github.com/noemichis/devil-on-pans/issues)
@@ -123,11 +152,14 @@ Additional issues and tasks were planned, unfortunately due to unexpected setbac
 
 ### Navbar
 
-![Search bar](assets/readme/search.png)
+![Navigation](assets/readme/login-nav-drop.png)
 
 - Navigation menu and links working
 - Navigation turns into hamburger dropdown on smaller screens
+- My Account displays as username or username initial if authenticated
 - Dropdown search bar functionality 
+
+![Search](assets/readme/search.png)
 
 ### Footer
 
@@ -143,6 +175,10 @@ Additional issues and tasks were planned, unfortunately due to unexpected setbac
 
 ![Stock](assets/readme/in-out-stock.png)
 
+- Edit and Delete button if admin 
+
+![Login as admin](assets/readme/admin-edit-delete.png)
+
 ### Item Details page
 
 ![Item detail](assets/readme/item-detail.png)
@@ -156,12 +192,51 @@ Additional issues and tasks were planned, unfortunately due to unexpected setbac
 
 ![Out of stock](assets/readme/out-of-stock.png)
 
+### Hire page
+
+- Hire packages rendering correctly
+- Hire request button redirect to Form
+- Form autofill Package name and email if authenticated
+- Form date can't be selected in the past
+- Send request is registered to database
+
+![Request sent](assets/readme/request-sent.png)
+
+
+### Admin Frontend
+
+- Add Item
+
+![Added item](assets/readme/success-added.png)
+
+- Edit Item
+- Delete Item
+- Create allergen
+
+![Create allergen](assets/readme/new-allergen.png)
+
+- Delete Allergen
+
+![Delete allergen](assets/readme/allergen-deleted.png)
+
+- View all hire requests
+
+![Hire request list admin](assets/readme/hire-requests-admin.png)
+
+
 ### Shopping bag
 
 ![Bag](assets/readme/bag.png)
 
 - Shopping bag contains all items to be purchased with the possibility to modify or delete them
 - Secure checkout and keep shopping buttons
+- Mini shopping bag displayed 
+
+![Bag](assets/readme/success-in-basket.png)
+
+- Quantity updated 
+
+![Bag](assets/readme/quantity-update.png)
 
 ### Checkout page
 
@@ -171,7 +246,23 @@ Additional issues and tasks were planned, unfortunately due to unexpected setbac
 
 ![Checkout](assets/readme/checkout.png)
 
-![Checkout success](assets/readme/success-confirmation.png)
+![Checkout success](assets/readme/order-success.png)
+
+- once checkout is successful the items stock number in the database is updated and the item will show as out of stock
+
+![Checkout success](assets/readme/stocknr-updated-after-purchase.png)
+
+
+### Profile page
+
+- Form that Renders user information and updates on request
+
+![Profile page view](assets/readme/profile-with-order.png)
+
+- Order information is retrieved from the database snd order can be accessed
+- Order history view render order success view with button to redirect to profile
+
+![Past order confirmation](assets/readme/past-confirmation.png)
 
 
 ### Error pages
@@ -181,6 +272,10 @@ Additional issues and tasks were planned, unfortunately due to unexpected setbac
 ### Login/logout/registration
 
 - No Register option if user logged in
+- Email verification
+
+![Email verification](assets/readme/email-confirm.png)
+
 - Logout confirmation
 - Form validation
 
@@ -190,12 +285,8 @@ Additional issues and tasks were planned, unfortunately due to unexpected setbac
 
 ### Future implementations
 
-Due to unforseen circumstances in the developers life this project is not fully finished and will need more future feature implementations.
-
-- Profile
-- Product Admin
-- Chef Hire
-- Wishlist feature
+There is much more to be implemented in the future. Daily specials, discounts, favorites. 
+Next step would be to add some extra features to the hire app to facilitate the hire requesting process. 
 
 ## TECHNOLOGIES
 

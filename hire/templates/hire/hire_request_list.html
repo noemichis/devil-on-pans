@@ -41,9 +41,7 @@
                         {% for message in hire_requests %}
                         <tr>
                             <td>
-                                <a href="#" title="{{ message.message_id }}">
-                                    {{ message.id }}
-                                </a>
+                                {{ message.id }}
                             </td>
                             <td>{{ message.name }}</td>
                             <td>{{ message.date }}</td>
